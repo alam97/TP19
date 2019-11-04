@@ -14,8 +14,13 @@ namespace Data
             private DateTimeOffset dateOfPurchase;
             private int inventoryId;
 
-            public Inventory()
+            public Inventory(Catalog catalog, int amount, DateTimeOffset dateOfPurchase, int inventoryId)
             {
+            this.catalog = catalog;
+            this.amount = amount;
+            this.dateOfPurchase = dateOfPurchase;
+            this.inventoryId = inventoryId;
+
             }
 
             public int InventoryID { get => inventoryId; set => inventoryId = value; }

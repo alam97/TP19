@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataFill.cs" />
+    <Compile Include="DataRepository.cs" />
     <Compile Include="FillConst.cs" />
     <Compile Include="FillFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,8 +8,15 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{17307D3A-DACC-4134-814B-9DB6529E3F68}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{D719B18A-A630-4954-A1BC-C909BD0A02B0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{17307D3A-DACC-4134-814B-9DB6529E3F68} = {17307D3A-DACC-4134-814B-9DB6529E3F68}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{870BE454-C6C9-413E-9B5C-70CBC6BEBCA4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EA46D41B-2158-4B92-96F0-728EE5E25266} = {EA46D41B-2158-4B92-96F0-728EE5E25266}
+		{17307D3A-DACC-4134-814B-9DB6529E3F68} = {17307D3A-DACC-4134-814B-9DB6529E3F68}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

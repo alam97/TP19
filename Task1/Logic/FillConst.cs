@@ -25,12 +25,12 @@ namespace Logic
 
             //CATALOGS
             context.catalogs.Add(0, new Catalog("Sword", 21.21, 1));
-            context.catalogs.Add(0, new Catalog("Sword", 21.21, 1));
-            context.catalogs.Add(0, new Catalog("Sword", 21.21, 1));
-            context.catalogs.Add(0, new Catalog("Sword", 21.21, 1));
-            context.catalogs.Add(0, new Catalog("Sword", 21.21, 1));
-            context.catalogs.Add(0, new Catalog("Sword", 21.21, 1));
-            context.catalogs.Add(0, new Catalog("Sword", 21.21, 1));
+            context.catalogs.Add(1, new Catalog("Sword", 21.21, 1));
+            context.catalogs.Add(2, new Catalog("Sword", 21.21, 1));
+            context.catalogs.Add(3, new Catalog("Sword", 21.21, 1));
+            context.catalogs.Add(4, new Catalog("Sword", 21.21, 1));
+            context.catalogs.Add(5, new Catalog("Sword", 21.21, 1));
+            context.catalogs.Add(6, new Catalog("Sword", 21.21, 1));
 
             //INVENTORY
             for (int i = 0; i < 5; i++)

@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data;
 
-namespace Data
+namespace Logic
 {
     public class DataRepository
     {
         private DataContext context;
+        private DataFill fill;
 
-        public DataRepository(DataContext c)
+        public DataRepository(DataContext context, DataFill fill)
         {
-            this.context = c;
+            this.context = context;
+            this.fill = fill;
         }
 
+        public void FillStatic() => fill.Fill(context);
 
         #region User
         public void AddUser(User u)

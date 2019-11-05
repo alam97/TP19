@@ -8,7 +8,7 @@ namespace Data
 {
     public class Event
     {
-        // this is an invoice 
+        // this is an invoice of a bought item
 
             private User user;
             private Catalog item;

@@ -65,7 +65,7 @@ namespace Data
 
         public void DeleteEvent(int id)
         {
-           
+            
         }
         #endregion
 
@@ -97,6 +97,39 @@ namespace Data
         {
             Inventory tmp = GetInventory(id);
             context.inventory.Remove(tmp);
+        }
+
+        #endregion
+
+        #region Catalog
+        // catalogs are stored in a dictionary, a collection
+        // with fast access thanks to the TKey and TValue pairs
+        // TKey is created in DataRepository, it cannot be 
+        // catalog's id because id is explicit to type of the product sold
+        // and not an "instance" of the product stored 
+        private int catalogKey = 0;
+        public int Catalogkey { get => catalogKey; set => catalogKey = value; }
+
+        public void AddCatalog(Catalog c)
+        {
+            context.catalogs.Add(catalogKey, c);
+            catalogKey++;
+        }
+        public Catalog GetCatalog(int key)
+        {
+            return context.catalogs[key];
+        }
+        public IEnumerable<Catalog> GetAllCatalogs()
+        {
+            return context.catalogs.Values;
+        }
+        public void DeleteCatalog(int key)
+        {
+           if ( context.inventory.Exists(x=> x.InventoryCatalog == context.catalogs[key]))
+            {
+                throw new Exception("Catalog cannot be deleted, it exists in the inventory");
+            }
+            context.catalogs.Remove(key);
         }
 
         #endregion

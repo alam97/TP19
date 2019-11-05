@@ -11,7 +11,7 @@ namespace Data
     {
         public List<User> users = new List<User>();
         public Dictionary<int, Catalog> catalogs = new Dictionary<int, Catalog>();
-        public System.Collections.ObjectModel.ObservableCollection<Event> events = new ObservableCollection<Event>();
+        public ObservableCollection<Event> events = new ObservableCollection<Event>();
         public List<Inventory> inventory = new List<Inventory>();
     }
 }

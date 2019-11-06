@@ -28,9 +28,12 @@ namespace Data
 
         public User GetUser(int id)
         {
-            if (context.users.Exists(x=>x.UserID == id))
+            foreach (var u in context.users)
             {
-                return context.users[id];
+                if (u.UserID == id)
+                {
+                    return u;
+                }
             }
             throw new Exception("No such an user");
         }
@@ -81,9 +84,12 @@ namespace Data
         }
         public Inventory GetInventory(int id)
         {
-            if (context.inventory.Exists(x => x.InventoryID == id))
+            foreach (var i in context.inventory)
             {
-                return context.inventory[id];
+                if (i.InventoryID == id)
+                {
+                    return i;
+                }
             }
             throw new Exception("No such an inventory");
         }

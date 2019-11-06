@@ -10,8 +10,10 @@ namespace Data
     public class DataContext
     {
         public List<User> users = new List<User>();
-        public Dictionary<int, Catalog> catalogs = new Dictionary<int, Catalog>();
+        // stores definitions of the products
+        public List<Product> catalog = new List<Product>();
+        // stores how many products there are in the shop currently
+        public Dictionary<Product, int> inventory = new Dictionary<Product, int>();
         public ObservableCollection<Event> events = new ObservableCollection<Event>();
-        public List<Inventory> inventory = new List<Inventory>();
     }
 }

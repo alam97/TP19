@@ -13,43 +13,50 @@ namespace Logic
 
         public void Fill(DataContext context)
         {
+            //#region users
+            ////USERS
+            //context.users.Add(new User("Jan", "Kowalski", 1));
+            //context.users.Add(new User("Michał", "Smutny", 2));
+            //context.users.Add(new User("Piotr", "Wesoły", 3));
+            //context.users.Add(new User("Łukasz", "Ciekawy", 4));
+            //context.users.Add(new User("Joanna", "Wysoka", 5));
+            //context.users.Add(new User("Barbara", "Kowalska", 6));
+            //context.users.Add(new User("Katarzyna", "Szybka", 7));
+            //#endregion
 
-            //USERS
-            context.users.Add(new User("Jan", "Kowalski", 1));
-            context.users.Add(new User("Michał", "Smutny", 2));
-            context.users.Add(new User("Piotr", "Wesoły", 3));
-            context.users.Add(new User("Łukasz", "Ciekawy", 4));
-            context.users.Add(new User("Joanna", "Wysoka", 5));
-            context.users.Add(new User("Barbara", "Kowalska", 6));
-            context.users.Add(new User("Katarzyna", "Szybka", 7));
+            //#region catalogs
+            ////CATALOGS
+            //context.catalogs.Add(0, new Product("Sword", 21.21, 1));
+            //context.catalogs.Add(0, new Product("Sword", 21.21, 1));
+            //context.catalogs.Add(0, new Product("Sword", 21.21, 1));
+            //context.catalogs.Add(0, new Product("Sword", 21.21, 1));
+            //context.catalogs.Add(0, new Product("Sword", 21.21, 1));
+            //context.catalogs.Add(0, new Product("Sword", 21.21, 1));
+            //context.catalogs.Add(0, new Product("Sword", 21.21, 1));
+            //#endregion
 
-            //CATALOGS
-            context.catalogs.Add(0, new Catalog("Sword", 21.21, 1));
-            context.catalogs.Add(1, new Catalog("Sword", 21.21, 1));
-            context.catalogs.Add(2, new Catalog("Sword", 21.21, 1));
-            context.catalogs.Add(3, new Catalog("Sword", 21.21, 1));
-            context.catalogs.Add(4, new Catalog("Sword", 21.21, 1));
-            context.catalogs.Add(5, new Catalog("Sword", 21.21, 1));
-            context.catalogs.Add(6, new Catalog("Sword", 21.21, 1));
+            //#region inventory
+            ////INVENTORY
+            ////for (int i = 0; i < 5; i++)
+            ////{
+            ////    Random amount = new Random();
+            ////    context.inventory.Add(new Inventory(context.catalogs[i], amount.Next(1, 10), DateTime.Today, i));
+            ////}
+            //#endregion
 
-            //INVENTORY
-            for (int i = 0; i < 5; i++)
-            {
-                Random amount = new Random();
-                context.inventory.Add(new Inventory(context.catalogs[i], amount.Next(1, 10), DateTime.Today, i));
-            }
+            //#region events
+            ////EVENTS
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    context.events.Add(new Event(context.users[i], context.catalogs[i], DateTime.Today));
+            //}
+            //#endregion
 
-            //EVENTS
-            for (int i = 0; i < 5; i++)
-            {
-                context.events.Add(new Event(context.users[i], context.catalogs[i], DateTime.Today));
-            }
-
-            //RELATIONS ONE TO MANY (USER BUYS SEVERAL PRODUCTS ON ONE INVOICE)
-            context.events.Add(new Event(context.users[6], context.catalogs[1], DateTime.Today));
-            context.events.Add(new Event(context.users[6], context.catalogs[2], DateTime.Today));
-            context.events.Add(new Event(context.users[6], context.catalogs[3], DateTime.Today));
-            context.events.Add(new Event(context.users[6], context.catalogs[4], DateTime.Today));
+            ////RELATIONS ONE TO MANY (USER BUYS SEVERAL PRODUCTS ON ONE INVOICE)
+            //context.events.Add(new Event(context.users[6], context.catalogs[1], DateTime.Today));
+            //context.events.Add(new Event(context.users[6], context.catalogs[2], DateTime.Today));
+            //context.events.Add(new Event(context.users[6], context.catalogs[3], DateTime.Today));
+            //context.events.Add(new Event(context.users[6], context.catalogs[4], DateTime.Today));
 
         }
     }

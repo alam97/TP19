@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    public class Catalog
+    public class Product
     {
         private string productName { get; set; }
         private double productPrice { get; set; }
         private int productId { get; set; }
 
-        public Catalog(string name, double price, int id)
+        public Product(string name, double price, int id)
         {
             this.productName = name;
             this.productPrice = price;
@@ -21,7 +21,7 @@ namespace Data
 
         public override bool Equals(object obj)
         {
-            Catalog compare = (Catalog)obj;
+            Product compare = (Product)obj;
             return this.productId == compare.productId;
         }
 

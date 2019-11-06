@@ -144,6 +144,14 @@ namespace Data
                 context.inventory[p] -= amount;
             }
         }
+        public void AddProductToInventoryy(Product p, int amount)
+        {
+            if (ProductExistsinInventory(p))
+            {
+                throw new Exception("The product already exists in inventory");
+            }
+            context.inventory.Add(p, amount);
+        }
         #endregion
     }
 }

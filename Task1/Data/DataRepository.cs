@@ -10,20 +10,24 @@ namespace Data
     {
         private DataContext context;
 
-        public DataRepository(DataContext c)
+        public DataRepository()
         {
-            this.context = c;
+            this.context = new DataContext();
         }
 
+        //public DataRepository(DataFill dataFill)
+        //{
+        //   this.context = new DataContext(dataFill);
+        //}
 
         #region User
-        public void AddUser(User u)
+        public void AddUser(User user)
         {
-            if (context.users.Exists(x => x.UserID == u.UserID))
+            if (context.users.Contains(user))
             {
                 throw new Exception("Such an user already exists");
             }
-            context.users.Add(u);
+            context.users.Add(user);
         }
 
         public User GetUser(int id)
@@ -38,15 +42,18 @@ namespace Data
             throw new Exception("No such an user");
         }
 
-        public IEnumerable<User> GetAllUsers()
+        public IReadOnlyList<User> GetAllUsers()
         {
             return context.users;
         }
 
-        public void DeleteUser(int id)
+        public void DeleteUser(User user)
         {
-            User tmp = GetUser(id);
-            context.users.Remove(tmp);
+            if (context.users.Contains(user))
+            {
+                context.users.Remove(user);
+            }
+            throw new Exception("Such an user does not exist!");
         }
         #endregion
 
@@ -61,83 +68,82 @@ namespace Data
             return context.events[id];
         }
 
-        public IEnumerable<Event> GetAllEvents()
+        public IReadOnlyList<Event> GetAllEvents()
         {
             return context.events;
         }
 
-        public void DeleteEvent(int id)
+        public void DeleteEvent(Event e)
         {
-            
+            context.events.Remove(e);
         }
         #endregion
 
-        #region Inventory
-        
-        public void AddInventory(Inventory i)
+        #region Product
+    
+        public void AddProduct(Product p)
         {
-            if (context.inventory.Exists(x => x.InventoryID == i.InventoryID))
-            {
-                throw new Exception("Such an inventory already exists");
-            }
-            context.inventory.Add(i);
-        }
-        public Inventory GetInventory(int id)
-        {
-            foreach (var i in context.inventory)
-            {
-                if (i.InventoryID == id)
-                {
-                    return i;
-                }
-            }
-            throw new Exception("No such an inventory");
+            context.catalog.Add(p);
         }
 
-        public IEnumerable<Inventory> GetAllInventories()
+        public Boolean ProductExists(Product p)
+        {
+            return context.catalog.Contains(p);
+        }
+
+        public Product GetProduct(int id)
+        {
+           foreach ( var p in context.catalog)
+            {
+                if (p.ProductID == id)
+                {
+                    return p;
+                }
+            }
+            throw new Exception("No product with such an id");
+        }
+        public IReadOnlyList<Product> GetAllProducts()
+        {
+            return context.catalog;
+        }
+        public void DeleteProduct(Product p)
+        {
+          if (context.catalog.Contains(p))
+            {
+                context.catalog.Remove(p);
+            }
+            throw new Exception("No such a product exists");
+        }
+
+        #endregion
+
+        #region Inventory
+
+        public Boolean ProductExistsinInventory(Product p)
+        {
+            return context.inventory.ContainsKey(p);
+        }
+        
+        public IReadOnlyDictionary<Product,int> GetInventory()
         {
             return context.inventory;
         }
 
-        public void DeleteInventory(int id)
+        public void DeleteFromInventory(Product p)
         {
-            Inventory tmp = GetInventory(id);
-            context.inventory.Remove(tmp);
-        }
-
-        #endregion
-
-        #region Catalog
-        // catalogs are stored in a dictionary, a collection
-        // with fast access thanks to the TKey and TValue pairs
-        // TKey is created in DataRepository, it cannot be 
-        // catalog's id because id is explicit to type of the product sold
-        // and not an "instance" of the product stored 
-        private int catalogKey = 0;
-        public int Catalogkey { get => catalogKey; set => catalogKey = value; }
-
-        public void AddCatalog(Catalog c)
-        {
-            context.catalogs.Add(catalogKey, c);
-            catalogKey++;
-        }
-        public Catalog GetCatalog(int key)
-        {
-            return context.catalogs[key];
-        }
-        public IEnumerable<Catalog> GetAllCatalogs()
-        {
-            return context.catalogs.Values;
-        }
-        public void DeleteCatalog(int key)
-        {
-           if ( context.inventory.Exists(x=> x.InventoryCatalog == context.catalogs[key]))
+            if (ProductExistsinInventory(p))
             {
-                throw new Exception("Catalog cannot be deleted, it exists in the inventory");
+                context.inventory.Remove(p);
             }
-            context.catalogs.Remove(key);
+            throw new Exception("No such product in inventory!");
         }
-
+        public void UpdateInventory(Product p, int amount)
+        {
+            if (ProductExistsinInventory(p))
+            {
+                context.inventory[p] -= amount;
+            }
+        }
         #endregion
     }
 }

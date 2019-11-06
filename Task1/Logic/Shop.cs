@@ -16,30 +16,44 @@ namespace Logic
             this.data = data;
         }
 
+        public Shop(DataFill fill)
+        {
+            data = new DataRepository();
+        }
+
         #region add
         public void AddUser(User u) => this.data.AddUser(u);
-        public void AddCatalog(Catalog c) => this.data.AddCatalog(c);
+        public void AddProduct(Product p) => this.data.AddProduct(p);
         public void AddEvent(Event e) => this.data.AddEvent(e);
-        public void AddInventory(Inventory i) => this.data.AddInventory(i);
         #endregion
 
         #region create
         public void CreateUser(string firstName, string lastName, int userId) => this.data.AddUser(new User(firstName, lastName, userId));
-        public void CreateCatalog(string productName, double productPrice, int productId) => this.data.AddCatalog(new Catalog(productName, productPrice, productId));
-        public void CreateEvent(User user, Catalog catalog, DateTimeOffset date) => this.data.AddEvent(new Event(user, catalog, date));
-        public void CreateInventory(Catalog catalog, int amount, DateTimeOffset date, int inventoryId) => this.data.AddInventory(new Inventory(catalog, amount, date, inventoryId));
+        public void CreateProduct(string productName, double productPrice, int productId) => this.data.AddProduct(new Product(productName, productPrice, productId));
+        public void CreateEvent(User user, Product catalog, DateTimeOffset date) => this.data.AddEvent(new Event(user, catalog, date));
+        #endregion
+
+        #region delete
+        public void DeleteUser(User u) => this.data.DeleteUser(u);
+        public void DeleteProduct(Product p) => this.data.DeleteProduct(p);
+        public void DeleteEvent(Event e) => this.data.DeleteEvent(e);
+        #endregion
+
+        #region update
+        public void UpdateInventory(Product p, int amount) => this.data.UpdateInventory(p, amount);
         #endregion
 
         #region shop actions
-        // buy an item -> 
-        // public void BuyItem(User u, int item, int amount)
-        //{
-        //    Catalog c = data.GetCatalog(item);
-        //    Random random = new Random();
-        //    int eventId = random.Next(1, 1000);
-        //    CreateEvent(u, c, DateTimeOffset.Now, eventId);
-
-        //}
+        // buy an item -> creates an invoice, updates inventory
+        public void BuyItem(User user, Product product, int amount)
+        {
+          if (data.ProductExists(product) && data.ProductExistsinInventory(product))
+            {
+                CreateEvent(user, product, DateTimeOffset.Now);
+                UpdateInventory(product, amount);
+                
+            }
+        }
 
         // 
         #endregion

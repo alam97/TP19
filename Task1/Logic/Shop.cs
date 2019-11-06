@@ -16,10 +16,10 @@ namespace Logic
             this.data = data;
         }
 
-        //public Shop(DataFill fill)
-        //{
-        //    data = new DataRepository(fill);
-        //}
+        public Shop(DataFill fill)
+        {
+            data = new DataRepository();
+        }
 
         #region add
         public void AddUser(User u) => this.data.AddUser(u);

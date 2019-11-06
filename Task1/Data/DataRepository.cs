@@ -9,16 +9,16 @@ namespace Data
     public class DataRepository
     {
         private DataContext context;
-        private DataFill fill;
 
-        public DataRepository(DataContext context, DataFill fill)
+        public DataRepository()
         {
-            this.context = context;
-            this.fill = fill;
+            this.context = new DataContext();
         }
 
-        public void FillStatic() => fill.Fill(context);
-
+        //public DataRepository(DataFill dataFill)
+        //{
+        //   this.context = new DataContext(dataFill);
+        //}
 
         #region User
         public void AddUser(User user)

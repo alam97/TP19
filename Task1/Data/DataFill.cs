@@ -8,6 +8,6 @@ namespace Data
 {
     public interface DataFill
     {
-        void Fill(DataContext context);
+        void Fill(DataRepository data);
     }
 }

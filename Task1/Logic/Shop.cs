@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Logic
 {
-    class Shop
+    public class Shop
     {
         private DataRepository data;
 
@@ -16,21 +16,19 @@ namespace Logic
             this.data = data;
         }
 
-        public Shop(DataFill fill)
-        {
-            data = new DataRepository();
-        }
+        //public Shop(DataFill fill)
+        //{
+        //    data = new DataRepository();
+        //}
+
+        public DataRepository Data { get => data;}
+
 
         #region add
         public void AddUser(User u) => this.data.AddUser(u);
         public void AddProduct(Product p) => this.data.AddProduct(p);
         public void AddEvent(Event e) => this.data.AddEvent(e);
-        public void AddProductToInventoryy(Product p, int amount) => this.data.AddProductToInventoryy(p, amount);
-        #endregion
-
-        #region exists
-        public Boolean ProductExists(Product p) => this.data.ProductExists(p);
-        public Boolean ProductExistsinInventory(Product p) => this.data.ProductExistsinInventory(p);
+        public void AddToINventory(Product p, int amount) => this.data.AddToInventory(p, amount);
         #endregion
 
         #region create
@@ -45,19 +43,6 @@ namespace Logic
         public void DeleteEvent(Event e) => this.data.DeleteEvent(e);
         #endregion
 
-        #region get
-        public void GetUser(int id) => this.data.GetUser(id);
-        public void GetProduct(int id) => this.data.GetProduct(id);
-        public void GetEvent(int id) => this.data.GetEvent(id);
-        #endregion
-
-        #region getall
-        public IReadOnlyList<User> GetAllUsers() => this.data.GetAllUsers();
-        public IReadOnlyList<Product> GetAllProducts() => this.data.GetAllProducts();
-        public IReadOnlyDictionary<Product, int> GetInventory() => this.data.GetInventory();
-        public IReadOnlyList<Event> GetEvents() => this.data.GetAllEvents();
-        #endregion
-
         #region update
         public void UpdateInventory(Product p, int amount) => this.data.UpdateInventory(p, amount);
         #endregion
@@ -66,12 +51,15 @@ namespace Logic
         // buy an item -> creates an invoice, updates inventory
         public void BuyItem(User user, Product product, int amount)
         {
-            if (ProductExists(product) && ProductExistsinInventory(product))
+          if (data.ProductExists(product) && data.ProductExistsinInventory(product))
             {
                 CreateEvent(user, product, DateTimeOffset.Now);
                 UpdateInventory(product, amount);
+                
             }
         }
+
+        // 
         #endregion
     }
 }

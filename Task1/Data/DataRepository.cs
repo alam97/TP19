@@ -15,10 +15,10 @@ namespace Data
             this.context = new DataContext();
         }
 
-        //public DataRepository(DataFill dataFill)
-        //{
-        //   this.context = new DataContext(dataFill);
-        //}
+        public void Fill(DataFill fill)
+        {
+            fill.Fill(this);
+        }
 
         #region User
         public void AddUser(User user)
@@ -53,7 +53,10 @@ namespace Data
             {
                 context.users.Remove(user);
             }
-            throw new Exception("Such an user does not exist!");
+            else
+            {
+                throw new Exception("Such an user does not exist!");
+            }
         }
         #endregion
 
@@ -65,7 +68,14 @@ namespace Data
 
         public Event GetEvent(int id)
         {
-            return context.events[id];
+            if (id+1 > context.events.Count)
+            {
+                throw new Exception("Such an event does not exist!");
+            }
+            else
+            {
+                return context.events[id];
+            }
         }
 
         public IReadOnlyList<Event> GetAllEvents()
@@ -75,6 +85,17 @@ namespace Data
 
         public void DeleteEvent(Event e)
         {
+            if (context.events.Contains(e))
+            {
+                context.events.Remove(e);
+            }
+            else
+            {
+                throw new Exception("Such an event does not exist!");
+            }
+
+
+
             context.events.Remove(e);
         }
         #endregion
@@ -108,16 +129,29 @@ namespace Data
         }
         public void DeleteProduct(Product p)
         {
-          if (context.catalog.Contains(p))
+            if (context.catalog.Contains(p))
             {
                 context.catalog.Remove(p);
             }
-            throw new Exception("No such a product exists");
+            else
+            {
+                throw new Exception("No such a product exists");
+            }
         }
 
         #endregion
 
         #region Inventory
+
+        public void AddToInventory(Product product, int amount)
+        {
+            if (ProductExistsinInventory(product))
+            {
+                throw new Exception("Such an user already exists");
+            }
+            context.inventory.Add(product, amount);
+        }
+
 
         public Boolean ProductExistsinInventory(Product p)
         {
@@ -135,7 +169,10 @@ namespace Data
             {
                 context.inventory.Remove(p);
             }
-            throw new Exception("No such product in inventory!");
+            else
+            {
+                throw new Exception("No such product in inventory!");
+            }
         }
         public void UpdateInventory(Product p, int amount)
         {

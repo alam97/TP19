@@ -57,7 +57,7 @@ namespace Test
             data_copy.AddProduct(new Product("Bow", 19.99, 5));
             data_copy.AddProduct(new Product("Arrow", 1.16, 6));
             data_copy.AddProduct(new Product("Knife", 14.21, 7));
-            data_copy.AddProductToInventory(data_copy.GetProduct(7), 20);
+            data_copy.AddProductToInventory(data_copy.GetProduct(7), 20); //25-5
 
             int k = 1;
             foreach (Product c in shop.Data.GetAllProducts())

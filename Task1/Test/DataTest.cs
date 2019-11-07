@@ -101,6 +101,7 @@ namespace Test
             Product P = new Product("Knife", 123.13, 66);
             data.AddProductToInventory(P, 10);
             data.UpdateInventory(P, 5);
+            Assert.AreEqual(5, data.GetAmountOfProduct(P));
         }
     
         [TestMethod()]
@@ -108,12 +109,8 @@ namespace Test
         {
             DataFill fillConst = new FillConst();
             DataRepository data = new DataRepository(fillConst);
-
-
             Product P = new Product("Knife", 123.13, 66);
-
             data.DeleteFromInventory(data.GetProduct(1));
-
             try
             {
                 data.DeleteFromInventory(P);
@@ -135,7 +132,7 @@ namespace Test
 
             Event E = new Event(data.GetUser(7), data.GetProduct(5), DateTime.Today);
             data.AddEvent(E);
-            Assert.AreEqual(E, data.GetEvent(9));
+            Assert.AreEqual(E, data.GetEvent(9)); //9 is a number of events in FillConst
         }
 
         [TestMethod()]
@@ -144,10 +141,10 @@ namespace Test
             DataFill fillConst = new FillConst();
             DataRepository data = new DataRepository(fillConst);
 
-
+            
             Event E = new Event(data.GetUser(7), data.GetProduct(5), DateTime.Today);
             data.AddEvent(E);
-            Assert.AreEqual(E, data.GetEvent(9));
+            Assert.AreEqual(E, data.GetEvent(9)); //9 is a number of events in FillConst
 
             data.DeleteEvent(data.GetEvent(9));
             try
@@ -164,6 +161,8 @@ namespace Test
 
 
     }
+
+    #region FillFile
     [TestClass()]
     public class FillFileTests
     {
@@ -273,7 +272,7 @@ namespace Test
         }
 
 
-
+        #endregion
     }
 }
 

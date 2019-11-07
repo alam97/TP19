@@ -174,9 +174,9 @@ namespace Test
             DataRepository data = new DataRepository(fillFile);
             DataRepository data_copy = new DataRepository();
             data_copy.AddUser(new User("Jan", "Kowalski", 1));
-            data_copy.AddUser(new User("Michał", "Smutny", 2));
-            data_copy.AddUser(new User("Piotr", "Wesoły", 3));
-            data_copy.AddUser(new User("Łukasz", "Ciekawy", 4));
+            data_copy.AddUser(new User("Michal", "Smutny", 2));
+            data_copy.AddUser(new User("Piotr", "Wesoly", 3));
+            data_copy.AddUser(new User("Lukasz", "Ciekawy", 4));
             data_copy.AddUser(new User("Joanna", "Wysoka", 5));
             data_copy.AddUser(new User("Barbara", "Kowalska", 6));
             data_copy.AddUser(new User("Katarzyna", "Szybka", 7));
@@ -184,6 +184,8 @@ namespace Test
             for (int i = 1; i < 8; i++)
             {
                 Assert.AreEqual(data.GetUser(i), data_copy.GetUser(i));
+                Assert.AreEqual(data.GetUser(i).LastName, data_copy.GetUser(i).LastName);
+                Assert.AreEqual(data.GetUser(i).FirstName, data_copy.GetUser(i).FirstName);
             }
         }
 
@@ -204,6 +206,8 @@ namespace Test
             for (int i = 1; i < 7; i++)
             {
                 Assert.AreEqual(data.GetProduct(i), data_copy.GetProduct(i));
+                Assert.AreEqual(data.GetProduct(i).ProductName, data_copy.GetProduct(i).ProductName);
+                Assert.AreEqual(data.GetProduct(i).ProductPrice, data_copy.GetProduct(i).ProductPrice);
             }
         }
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Logic
 {
-    class Shop
+    public class Shop
     {
         private DataRepository data;
 
@@ -16,15 +16,19 @@ namespace Logic
             this.data = data;
         }
 
-        public Shop(DataFill fill)
-        {
-            data = new DataRepository();
-        }
+        //public Shop(DataFill fill)
+        //{
+        //    data = new DataRepository();
+        //}
+
+        public DataRepository Data { get => data;}
+
 
         #region add
         public void AddUser(User u) => this.data.AddUser(u);
         public void AddProduct(Product p) => this.data.AddProduct(p);
         public void AddEvent(Event e) => this.data.AddEvent(e);
+        public void AddToINventory(Product p, int amount) => this.data.AddToInventory(p, amount);
         #endregion
 
         #region create

@@ -9,54 +9,54 @@ namespace Logic
 {
     public class FillConst : DataFill
     {
-        public FillConst() { }
+        public FillConst() { }      
 
-        public void Fill(DataContext context)
+        public void Fill(DataRepository data)
         {
-            //#region users
-            ////USERS
-            //context.users.Add(new User("Jan", "Kowalski", 1));
-            //context.users.Add(new User("Michał", "Smutny", 2));
-            //context.users.Add(new User("Piotr", "Wesoły", 3));
-            //context.users.Add(new User("Łukasz", "Ciekawy", 4));
-            //context.users.Add(new User("Joanna", "Wysoka", 5));
-            //context.users.Add(new User("Barbara", "Kowalska", 6));
-            //context.users.Add(new User("Katarzyna", "Szybka", 7));
-            //#endregion
+            #region users
+            //USERS
+            data.AddUser(new User("Jan", "Kowalski", 1));
+            data.AddUser(new User("Michał", "Smutny", 2));
+            data.AddUser(new User("Piotr", "Wesoły", 3));
+            data.AddUser(new User("Łukasz", "Ciekawy", 4));
+            data.AddUser(new User("Joanna", "Wysoka", 5));
+            data.AddUser(new User("Barbara", "Kowalska", 6));
+            data.AddUser(new User("Katarzyna", "Szybka", 7));
+            #endregion
 
-            //#region catalogs
-            ////CATALOGS
-            //context.catalogs.Add(0, new Product("Sword", 21.21, 1));
-            //context.catalogs.Add(0, new Product("Sword", 21.21, 1));
-            //context.catalogs.Add(0, new Product("Sword", 21.21, 1));
-            //context.catalogs.Add(0, new Product("Sword", 21.21, 1));
-            //context.catalogs.Add(0, new Product("Sword", 21.21, 1));
-            //context.catalogs.Add(0, new Product("Sword", 21.21, 1));
-            //context.catalogs.Add(0, new Product("Sword", 21.21, 1));
-            //#endregion
+            #region catalogs
+            //CATALOGS
+            data.AddProduct(new Product("Sword", 21.21, 1));
+            data.AddProduct(new Product("Spear", 23.99, 2));
+            data.AddProduct(new Product("Armour", 87.31, 3));
+            data.AddProduct(new Product("Axe", 45.11, 4));
+            data.AddProduct(new Product("Bow", 19.99, 5));
+            data.AddProduct(new Product("Arrow", 1.16, 6));
+            #endregion
 
-            //#region inventory
-            ////INVENTORY
-            ////for (int i = 0; i < 5; i++)
-            ////{
-            ////    Random amount = new Random();
-            ////    context.inventory.Add(new Inventory(context.catalogs[i], amount.Next(1, 10), DateTime.Today, i));
-            ////}
-            //#endregion
+            #region inventory
+            //INVENTORY
+            for (int i = 1; i < 7; i++)
+            {
+                Random amount = new Random();
+                data.AddToInventory(data.GetProduct(i), amount.Next(1, 10));
+            }
+            #endregion
 
-            //#region events
-            ////EVENTS
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    context.events.Add(new Event(context.users[i], context.catalogs[i], DateTime.Today));
-            //}
-            //#endregion
+            #region events
+            //EVENTS
+            for (int i = 1; i < 6; i++)
+            {
+                data.AddEvent(new Event(data.GetUser(i), data.GetProduct(i), DateTime.Today));
+            }
+            #endregion
 
-            ////RELATIONS ONE TO MANY (USER BUYS SEVERAL PRODUCTS ON ONE INVOICE)
-            //context.events.Add(new Event(context.users[6], context.catalogs[1], DateTime.Today));
-            //context.events.Add(new Event(context.users[6], context.catalogs[2], DateTime.Today));
-            //context.events.Add(new Event(context.users[6], context.catalogs[3], DateTime.Today));
-            //context.events.Add(new Event(context.users[6], context.catalogs[4], DateTime.Today));
+            //RELATIONS ONE TO MANY (USER BUYS SEVERAL PRODUCTS ON ONE INVOICE)
+            data.AddEvent(new Event(data.GetUser(6), data.GetProduct(1), DateTime.Today));
+            data.AddEvent(new Event(data.GetUser(6), data.GetProduct(2), DateTime.Today));
+            data.AddEvent(new Event(data.GetUser(6), data.GetProduct(3), DateTime.Today));
+            data.AddEvent(new Event(data.GetUser(6), data.GetProduct(4), DateTime.Today));
+
 
         }
     }

@@ -13,8 +13,6 @@ namespace Data
             private User user;
             private Product item;
             private DateTimeOffset dateofEvent;
-            private int eventId;
-           
 
         public Event(User user, Product item, DateTimeOffset dateofEvent)
         {
@@ -26,6 +24,5 @@ namespace Data
             public User EventUser { get => user; set => user = value; }
             public Product EventCatalog { get => item; set => item = value; }
             public DateTimeOffset EventDate { get => dateofEvent; set => dateofEvent = value; }
-            public int EventID { get => eventId; set => eventId = value; }
         }
     }

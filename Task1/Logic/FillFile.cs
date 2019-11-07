@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,7 @@ namespace Logic
             foreach (string line in lines)
             {
                 string[] words = line.Split(';');
-                data.AddProduct(new Product(words[0], Double.Parse(words[1]), int.Parse(words[2])));
+                data.AddProduct(new Product(words[0], double.Parse(words[1], CultureInfo.InvariantCulture), int.Parse(words[2])));
             }
 
             lines = System.IO.File.ReadAllLines("../../../Resources/Inventory.txt");

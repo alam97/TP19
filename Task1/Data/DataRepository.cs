@@ -69,7 +69,7 @@ namespace Data
 
         public Event GetEvent(int id)
         {
-            if (id+1 > context.events.Count)
+            if (id + 1 > context.events.Count)
             {
                 throw new Exception("Such an event does not exist!");
             }
@@ -102,7 +102,7 @@ namespace Data
         #endregion
 
         #region Product
-    
+
         public void AddProduct(Product p)
         {
             context.catalog.Add(p);
@@ -115,7 +115,7 @@ namespace Data
 
         public Product GetProduct(int id)
         {
-           foreach ( var p in context.catalog)
+            foreach (var p in context.catalog)
             {
                 if (p.ProductID == id)
                 {
@@ -147,8 +147,8 @@ namespace Data
         {
             return context.inventory.ContainsKey(p);
         }
-        
-        public IReadOnlyDictionary<Product,int> GetInventory()
+
+        public IReadOnlyDictionary<Product, int> GetInventory()
         {
             return context.inventory;
         }
@@ -178,6 +178,19 @@ namespace Data
                 throw new Exception("The product already exists in inventory");
             }
             context.inventory.Add(p, amount);
+        }
+
+        public int GetAmountOfProduct(Product p)
+        {
+
+            foreach (var u in context.inventory)
+            {
+                if (u.Key.ProductID == p.ProductID)
+                {
+                    return u.Value;
+                }
+            }
+            throw new Exception("No such product in inventory!");
         }
 
         #endregion

@@ -7,22 +7,24 @@ using Data;
 
 namespace Logic
 {
-    class FillFile : DataFill
+    public class FillFile : DataFill
     {
+        public FillFile() { }
+
         public void Fill(DataRepository data)
         {
             string[] lines = System.IO.File.ReadAllLines(@"Users.txt");
             foreach (string line in lines)
             {
                 string[] words = line.Split(';');
-                data.AddUser(new User(words[0], words[1], Int32.Parse(words[3])));
+                data.AddUser(new User(words[0], words[1], int.Parse(words[2])));
 
             }
             lines = System.IO.File.ReadAllLines(@"Catalogs.txt");
             foreach (string line in lines)
             {
                 string[] words = line.Split(';');
-                data.AddProduct(new Product(words[0], Double.Parse(words[2]), int.Parse(words[3])));
+                data.AddProduct(new Product(words[0], Double.Parse(words[1]), int.Parse(words[2])));
             }
 
             lines = System.IO.File.ReadAllLines(@"Inventory.txt");
@@ -33,7 +35,7 @@ namespace Logic
                 foreach (Product c in data.GetAllProducts())
                 {
                     if (c.ProductID == Int32.Parse(words[0]))
-                        data.UpdateInventory(c, int.Parse(words[1]));
+                        data.AddProductToInventory(c, int.Parse(words[1]));
                 }
             }
 
@@ -41,7 +43,7 @@ namespace Logic
             foreach (string line in lines)
             {
                 string[] words = line.Split(';');
-                data.AddEvent(new Event(data.GetUser(int.Parse(words[1])), data.GetProduct(int.Parse(words[2])), DateTime.Parse(words[3])));
+                data.AddEvent(new Event(data.GetUser(int.Parse(words[0])), data.GetProduct(int.Parse(words[1])), DateTime.Parse(words[2])));
             }
         }
     }

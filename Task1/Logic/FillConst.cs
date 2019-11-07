@@ -16,9 +16,9 @@ namespace Logic
             #region users
             //USERS
             data.AddUser(new User("Jan", "Kowalski", 1));
-            data.AddUser(new User("Michał", "Smutny", 2));
-            data.AddUser(new User("Piotr", "Wesoły", 3));
-            data.AddUser(new User("Łukasz", "Ciekawy", 4));
+            data.AddUser(new User("Michal", "Smutny", 2));
+            data.AddUser(new User("Piotr", "Wesoly", 3));
+            data.AddUser(new User("Lukasz", "Ciekawy", 4));
             data.AddUser(new User("Joanna", "Wysoka", 5));
             data.AddUser(new User("Barbara", "Kowalska", 6));
             data.AddUser(new User("Katarzyna", "Szybka", 7));
@@ -39,7 +39,7 @@ namespace Logic
             for (int i = 1; i < 7; i++)
             {
                 Random amount = new Random();
-                data.AddProductToInventory(data.GetProduct(i), amount.Next(1, 10));
+                data.AddProductToInventory(data.GetProduct(i), i+9);
             }
             #endregion
 
@@ -56,6 +56,7 @@ namespace Logic
             data.AddEvent(new Event(data.GetUser(6), data.GetProduct(2), DateTime.Today));
             data.AddEvent(new Event(data.GetUser(6), data.GetProduct(3), DateTime.Today));
             data.AddEvent(new Event(data.GetUser(6), data.GetProduct(4), DateTime.Today));
+            //07.11.2019 00:00:00
 
 
         }

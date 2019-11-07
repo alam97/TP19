@@ -16,10 +16,10 @@ namespace Logic
             this.data = data;
         }
 
-        //public Shop(DataFill fill)
-        //{
-        //    data = new DataRepository();
-        //}
+        public Shop(DataFill fill)
+        {
+            data = new DataRepository(fill);
+        }
 
         public DataRepository Data { get => data;}
 
@@ -28,7 +28,7 @@ namespace Logic
         public void AddUser(User u) => this.data.AddUser(u);
         public void AddProduct(Product p) => this.data.AddProduct(p);
         public void AddEvent(Event e) => this.data.AddEvent(e);
-        public void AddToINventory(Product p, int amount) => this.data.AddToInventory(p, amount);
+        public void AddToInventory(Product p, int amount) => this.data.AddProductToInventory(p, amount);
         #endregion
 
         #region create

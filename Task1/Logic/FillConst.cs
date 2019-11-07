@@ -39,7 +39,7 @@ namespace Logic
             for (int i = 1; i < 7; i++)
             {
                 Random amount = new Random();
-                data.AddToInventory(data.GetProduct(i), amount.Next(1, 10));
+                data.AddProductToInventory(data.GetProduct(i), amount.Next(1, 10));
             }
             #endregion
 

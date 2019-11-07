@@ -15,8 +15,9 @@ namespace Data
             this.context = new DataContext();
         }
 
-        public void Fill(DataFill fill)
+        public DataRepository(DataFill fill)
         {
+            this.context = new DataContext();
             fill.Fill(this);
         }
 
@@ -142,17 +143,6 @@ namespace Data
         #endregion
 
         #region Inventory
-
-        public void AddToInventory(Product product, int amount)
-        {
-            if (ProductExistsinInventory(product))
-            {
-                throw new Exception("Such an user already exists");
-            }
-            context.inventory.Add(product, amount);
-        }
-
-
         public Boolean ProductExistsinInventory(Product p)
         {
             return context.inventory.ContainsKey(p);
@@ -181,7 +171,7 @@ namespace Data
                 context.inventory[p] -= amount;
             }
         }
-        public void AddProductToInventoryy(Product p, int amount)
+        public void AddProductToInventory(Product p, int amount)
         {
             if (ProductExistsinInventory(p))
             {
@@ -189,6 +179,7 @@ namespace Data
             }
             context.inventory.Add(p, amount);
         }
+
         #endregion
     }
 }

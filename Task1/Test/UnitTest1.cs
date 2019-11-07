@@ -16,8 +16,7 @@ namespace Test
         public void AddUserAndGet()
         {
             FillConst fillConst = new FillConst();
-            DataRepository data = new DataRepository();
-            data.Fill(fillConst);
+            DataRepository data = new DataRepository(fillConst);
 
             User U = new User("Aleksander", "Brylski", 66);
             data.AddUser(U);
@@ -32,8 +31,7 @@ namespace Test
         public void DeleteUser()
         {
             FillConst fillConst = new FillConst();
-            DataRepository data = new DataRepository();
-            data.Fill(fillConst);
+            DataRepository data = new DataRepository(fillConst);
 
             User U = new User("Aleksander", "Brylski", 66);
             data.AddUser(U);
@@ -57,8 +55,7 @@ namespace Test
         public void AddProductAndGetProduct()
         {
             FillConst fillConst = new FillConst();
-            DataRepository data = new DataRepository();
-            data.Fill(fillConst);
+            DataRepository data = new DataRepository(fillConst);
 
             Product P = new Product("Knife", 123.13, 66);
             data.AddProduct(P);
@@ -73,8 +70,7 @@ namespace Test
         public void DeleteProduct()
         {
             FillConst fillConst = new FillConst();
-            DataRepository data = new DataRepository();
-            data.Fill(fillConst);
+            DataRepository data = new DataRepository(fillConst);
 
             Product P = new Product("Knife", 123.13, 66);
             data.AddProduct(P);
@@ -97,11 +93,10 @@ namespace Test
         public void AddToInventoryAndUpdate()
         {
             FillConst fillConst = new FillConst();
-            DataRepository data = new DataRepository();
-            data.Fill(fillConst);
+            DataRepository data = new DataRepository(fillConst);
 
             Product P = new Product("Knife", 123.13, 66);
-            data.AddToInventory(P, 10);
+            data.AddProductToInventory(P, 10);
             data.UpdateInventory(P, 5);
         }
     
@@ -109,8 +104,7 @@ namespace Test
         public void DeleteFromInventory()
         {
             FillConst fillConst = new FillConst();
-            DataRepository data = new DataRepository();
-            data.Fill(fillConst);
+            DataRepository data = new DataRepository(fillConst);
 
             Product P = new Product("Knife", 123.13, 66);
 
@@ -132,8 +126,7 @@ namespace Test
         public void AddEventAndGetEvent()
         {
             FillConst fillConst = new FillConst();
-            DataRepository data = new DataRepository();
-            data.Fill(fillConst);
+            DataRepository data = new DataRepository(fillConst);
 
             Event E = new Event(data.GetUser(7), data.GetProduct(5), DateTime.Today);
             data.AddEvent(E);
@@ -144,8 +137,7 @@ namespace Test
         public void DeleteEvent()
         {
             FillConst fillConst = new FillConst();
-            DataRepository data = new DataRepository();
-            data.Fill(fillConst);
+            DataRepository data = new DataRepository(fillConst);
 
             Event E = new Event(data.GetUser(7), data.GetProduct(5), DateTime.Today);
             data.AddEvent(E);
@@ -171,9 +163,7 @@ namespace Test
         public void ShopCreateAndDelete()
         {
             FillConst fillConst = new FillConst();
-            DataRepository data = new DataRepository();
-            Shop shop = new Shop(data);
-            shop.Data.Fill(fillConst);
+            Shop shop = new Shop(fillConst);
 
             User U = new User("Aleksander", "Brylski", 66);
             shop.CreateUser("Aleksander", "Brylski", 66);
@@ -192,9 +182,7 @@ namespace Test
         public void BuyItem()
         {
             FillConst fillConst = new FillConst();
-            DataRepository data = new DataRepository();
-            Shop shop = new Shop(data);
-            shop.Data.Fill(fillConst);
+            Shop shop = new Shop(fillConst);
 
             User U = new User("Aleksander", "Brylski", 66);
             shop.CreateUser("Aleksander", "Brylski", 66);
@@ -204,10 +192,12 @@ namespace Test
             shop.CreateProduct("Knife", 14.21, 11);
             Assert.AreEqual(P, shop.Data.GetProduct(11));
 
-            shop.AddToINventory(P, 25);
+            shop.AddToInventory(P, 25);
             Assert.Equals(true, shop.Data.ProductExistsinInventory(P));
 
             shop.BuyItem(shop.Data.GetUser(66), shop.Data.GetProduct(11), 5);
+
+            //shop.Data.GetInventory.
   
           //  Assert.AreEqual(U, shop.Data.GetUser(66));
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,21 +14,21 @@ namespace Logic
 
         public void Fill(DataRepository data)
         {
-            string[] lines = System.IO.File.ReadAllLines(@"Users.txt");
+            string[] lines = System.IO.File.ReadAllLines("../../../Resources/Users.txt");
             foreach (string line in lines)
             {
                 string[] words = line.Split(';');
                 data.AddUser(new User(words[0], words[1], int.Parse(words[2])));
 
             }
-            lines = System.IO.File.ReadAllLines(@"Catalogs.txt");
+            lines = System.IO.File.ReadAllLines("../../../Resources/Catalogs.txt");
             foreach (string line in lines)
             {
                 string[] words = line.Split(';');
                 data.AddProduct(new Product(words[0], Double.Parse(words[1]), int.Parse(words[2])));
             }
 
-            lines = System.IO.File.ReadAllLines(@"Inventory.txt");
+            lines = System.IO.File.ReadAllLines("../../../Resources/Inventory.txt");
             foreach (string line in lines)
             {
                 string[] words = line.Split(';');
@@ -39,7 +40,7 @@ namespace Logic
                 }
             }
 
-            lines = System.IO.File.ReadAllLines(@"Events.txt");
+            lines = System.IO.File.ReadAllLines("../../../Resources/Events.txt");
             foreach (string line in lines)
             {
                 string[] words = line.Split(';');

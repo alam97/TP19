@@ -1,0 +1,7 @@
+Jan;Kowalski;1
+Michal;Smutny;2
+Piotr;Wesoly;3
+Lukasz;Ciekawy;4
+Joanna;Wysoka;5
+Barbara;Kowalska;6
+Katarzyna;Szybka;7

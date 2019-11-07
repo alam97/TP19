@@ -47,15 +47,20 @@ namespace Logic
         public void UpdateInventory(Product p, int amount) => this.data.UpdateInventory(p, amount);
         #endregion
 
+        #region exists
+        public Boolean ProductExists(Product p) => this.data.ProductExists(p);
+        public Boolean UserExists(User u) => this.data.UserExists(u);
+        public Boolean ProductExistsinInventory(Product p) => this.data.ProductExistsinInventory(p);
+        #endregion
+
         #region shop actions
         // buy an item -> creates an invoice, updates inventory
         public void BuyItem(User user, Product product, int amount)
         {
-          if (data.ProductExists(product) && data.ProductExistsinInventory(product))
+          if (ProductExists(product) && ProductExistsinInventory(product))
             {
                 CreateEvent(user, product, DateTimeOffset.Now);
                 UpdateInventory(product, amount);
-                
             }
         }
 

@@ -22,9 +22,13 @@ namespace Data
         }
 
         #region User
+        public Boolean UserExists(User u)
+        {
+            return context.users.Contains(u);
+        }
         public void AddUser(User user)
         {
-            if (context.users.Contains(user))
+            if (UserExists(user))
             {
                 throw new Exception("Such an user already exists");
             }
@@ -56,7 +60,7 @@ namespace Data
             }
             else
             {
-                throw new Exception("Such an user does not exist!");
+                throw new Exception("Such an user does not exist");
             }
         }
         #endregion
@@ -103,14 +107,18 @@ namespace Data
 
         #region Product
 
-        public void AddProduct(Product p)
-        {
-            context.catalog.Add(p);
-        }
-
         public Boolean ProductExists(Product p)
         {
             return context.catalog.Contains(p);
+        }
+
+        public void AddProduct(Product p)
+        {
+            if (ProductExists(p))
+            {
+                throw new Exception("Such a product already exists");
+            }
+            context.catalog.Add(p);
         }
 
         public Product GetProduct(int id)

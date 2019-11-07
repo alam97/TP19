@@ -12,10 +12,8 @@ namespace API
     {
         static void Main(string[] args)
         {
-
             FillConst fillConst = new FillConst();
             Shop shop = new Shop(fillConst);
-            User U = new User("Aleksander", "Brylski", 66);
             shop.CreateUser("Aleksander", "Brylski", 66);
             Product P = new Product("Knife", 14.21, 7);
             shop.CreateProduct("Knife", 14.21, 7);

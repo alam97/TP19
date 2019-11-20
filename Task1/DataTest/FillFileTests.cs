@@ -11,7 +11,7 @@ namespace Test
         public void UserFile()
         {
 
-            DataFill fillFile = new Logic.FillFile();
+            DataFill fillFile = new FillFile();
             DataRepository data = new DataRepository(fillFile);
             DataRepository data_copy = new DataRepository();
             data_copy.AddUser(new User("Jan", "Kowalski", 1));
@@ -34,7 +34,7 @@ namespace Test
         public void CatalogFile()
         {
 
-            DataFill fillFile = new Logic.FillFile();
+            DataFill fillFile = new FillFile();
             DataRepository data = new DataRepository(fillFile);
             DataRepository data_copy = new DataRepository();
 
@@ -56,7 +56,7 @@ namespace Test
         public void EventsFile()
         {
 
-            DataFill fillFile = new Logic.FillFile();
+            DataFill fillFile = new FillFile();
             DataRepository data = new DataRepository(fillFile);
             DataRepository data_copy = new DataRepository();
 
@@ -96,7 +96,7 @@ namespace Test
         public void InventoryFile()
         {
 
-            DataFill fillFile = new Logic.FillFile();
+            DataFill fillFile = new FillFile();
             DataRepository data = new DataRepository(fillFile);
             DataRepository data_copy = new DataRepository();
             for (int i = 1; i < 7; i++)

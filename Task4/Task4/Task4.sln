@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task4", "Task4\Task4.csproj", "{0E312981-02E7-45AB-BB94-8CEF5EED3874}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMBSTest", "DMBSTest\DMBSTest.csproj", "{5CE74D10-D044-4E1D-8B02-59BDA61D4552}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E312981-02E7-45AB-BB94-8CEF5EED3874}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E312981-02E7-45AB-BB94-8CEF5EED3874}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E312981-02E7-45AB-BB94-8CEF5EED3874}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E312981-02E7-45AB-BB94-8CEF5EED3874}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CE74D10-D044-4E1D-8B02-59BDA61D4552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CE74D10-D044-4E1D-8B02-59BDA61D4552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CE74D10-D044-4E1D-8B02-59BDA61D4552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CE74D10-D044-4E1D-8B02-59BDA61D4552}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13131143-F35B-4786-9151-29FBCC6963C3}
+	EndGlobalSection
+EndGlobal

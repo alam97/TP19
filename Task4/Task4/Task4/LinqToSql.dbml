@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="C:\USERS\ALEKSANDER\DESKTOP\PULPIT\STUDIA\TP\TP19\TASK4\TASK4\TASK4\SHOPDB.MDF" Class="LinqToSqlDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=C:\USERS\ALEKSANDER\DESKTOP\PULPIT\STUDIA\TP\TP19\TASK4\TASK4\TASK4\SHOPDB.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="Task4.Properties.Settings" SettingsPropertyName="C__USERS_ALEKSANDER_DESKTOP_PULPIT_STUDIA_TP_TP19_TASK4_TASK4_TASK4_SHOPDB_MDFConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Event" Member="Events">
+    <Type Name="Event">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PersonId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EventDate" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Association Name="Person_Event" Member="Person" ThisKey="PersonId" OtherKey="Id" Type="Person" IsForeignKey="true" />
+      <Association Name="Product_Event" Member="Product" ThisKey="ProductId" OtherKey="Id" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Person" Member="Persons">
+    <Type Name="Person">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Person_Event" Member="Events" ThisKey="Id" OtherKey="PersonId" Type="Event" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Association Name="Product_Event" Member="Events" ThisKey="Id" OtherKey="ProductId" Type="Event" />
+      <Association Name="Inventory_Product" Member="Inventory" ThisKey="Id" OtherKey="ProductId" Type="Inventory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Inventory" Member="Inventories">
+    <Type Name="Inventory">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Inventory_Product" Member="Products" ThisKey="ProductId" OtherKey="Id" Type="Product" />
+    </Type>
+  </Table>
+</Database>

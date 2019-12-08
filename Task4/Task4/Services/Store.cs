@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+// using System.Data.Linq;
 
 
 namespace Services
@@ -20,14 +21,21 @@ namespace Services
         #region add
         public void AddUser(Person p)
         {
+           // db.Persons.InsertOnSubmit(p);
+           // db.SubmitChanges();
 
         }
         public void AddProduct(Product p)
         {
+           // db.Products.InsertOnSubmit(p);
+           // db.SubmitChanges();
 
         }
         public void AddEvent(Event e)
         {
+           // db.Events.InsertOnSubmit(e);
+            // db.SubmitChanges();
+
 
         }
         public void AddToInventory(Product p, int amount)
@@ -48,9 +56,48 @@ namespace Services
         #endregion
 
         #region delete
-        public void DeleteUser(Person u) { }
-        public void DeleteProduct(Product p) { }
-        public void DeleteEvent(Event e) { }
+        public void DeleteUser(Person u)
+        {
+            //var deletePerson =
+            //    from person in db.Persons
+            //    where person.Id == u.Id
+            //    select person;
+
+            //if (deletePerson.Count() > 0)
+            //{
+            //    db.Persons.DeleteOnSubmit(deletePerson.First());
+            //    db.SubmitChanges();
+
+            //}
+        }
+        public void DeleteProduct(Product p)
+        {
+            //var deleteProduct =
+            //    from product in db.Products
+            //    where product.Id == p.Id
+            //    select person;
+
+            //if (deleteProduct.Count() > 0)
+            //{
+            //    db.Products.DeleteOnSubmit(deleteProduct.First());
+            //    db.SubmitChanges();
+
+            //}
+        }
+        public void DeleteEvent(Event e)
+        {
+            //var deleteEvent =
+            //    from event in db.Events
+            //    where event.Id == e.Id
+            //    select event;
+
+            //if (deleteEvent.Count() > 0)
+            //{
+            //    db.Events.DeleteOnSubmit(deleteEvent.First());
+            //    db.SubmitChanges();
+
+            //}
+        }
         #endregion
 
         #region update

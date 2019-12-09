@@ -33,8 +33,13 @@ namespace Services
             db.SubmitChanges();
 
         }
-        public void AddToInventory(Inventory inventory)
+        public void AddToInventory(Product p, int a)
         {
+            Inventory inventory = new Inventory()
+            {
+                ProductId = p.Id,
+                amount = a
+            };
             db.Inventories.InsertOnSubmit(inventory);
             db.SubmitChanges();
         }
@@ -86,7 +91,10 @@ namespace Services
             {
                 db.Persons.DeleteOnSubmit(deletePerson.First());
                 db.SubmitChanges();
-
+            }
+            else
+            {
+                throw new Exception("There is no such user");
             }
         }
         public void DeleteProduct(Product p)
@@ -100,7 +108,10 @@ namespace Services
             {
                 db.Products.DeleteOnSubmit(deleteProduct.First());
                 db.SubmitChanges();
-
+            }
+            else
+            {
+                throw new Exception("There is no such product");
             }
         }
         public void DeleteEvent(Event e)
@@ -116,6 +127,10 @@ namespace Services
                 db.Events.DeleteOnSubmit(deleteEvent.First());
                 db.SubmitChanges();
             }
+            else
+            {
+                throw new Exception("There is no such event");
+            }
         }
 
         #endregion
@@ -127,12 +142,18 @@ namespace Services
                 from inventory in db.Inventories
                 where inventory.ProductId == p.Id
                 select inventory;
-
-            foreach (Inventory inv in query)
+            if (query.Count() > 0)
             {
-                inv.amount = inv.amount - amount;
+                foreach (Inventory inv in query)
+                {
+                    inv.amount = inv.amount - amount;
+                }
+                db.SubmitChanges();
             }
-            db.SubmitChanges();
+            else
+            {
+                throw new Exception("This product does not exist in inventory");
+            }
         }
         #endregion
 
@@ -175,12 +196,30 @@ namespace Services
         }
         #endregion
 
+        public int GetAmountOfProduct(Product p)
+        { 
+            var query =
+                from inventory in db.Inventories
+                where inventory.ProductId == p.Id
+                select inventory;
+            if (query.Count() > 0)
+                return (int)query.First().amount;
+            else
+                throw new Exception("This product does not exist in inventory");
+        }
+
         #region shop actions
         // buy an item -> creates an invoice, updates inventory
         public void BuyItem(Person user, Product product, int amount)
         {
-            CreateEvent(user, product, DateTime.Today);
-            UpdateInventory(product, amount);
+            if (GetAmountOfProduct(product) < amount)
+                throw new Exception("There is not enough of this product in inventory");
+            else
+            {
+                CreateEvent(user, product, DateTime.Today);
+                UpdateInventory(product, amount);
+            }
+         
         }
 
         #endregion

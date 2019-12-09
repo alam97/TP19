@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Task4\Data.csproj",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMBSTest", "DMBSTest\DMBSTest.csproj", "{5CE74D10-D044-4E1D-8B02-59BDA61D4552}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{6382E093-76C7-472C-9BAC-C96833FDFF1D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{9F2E147F-EC80-4782-A040-342219060577}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{5CE74D10-D044-4E1D-8B02-59BDA61D4552}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CE74D10-D044-4E1D-8B02-59BDA61D4552}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CE74D10-D044-4E1D-8B02-59BDA61D4552}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6382E093-76C7-472C-9BAC-C96833FDFF1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6382E093-76C7-472C-9BAC-C96833FDFF1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6382E093-76C7-472C-9BAC-C96833FDFF1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6382E093-76C7-472C-9BAC-C96833FDFF1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F2E147F-EC80-4782-A040-342219060577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F2E147F-EC80-4782-A040-342219060577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F2E147F-EC80-4782-A040-342219060577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F2E147F-EC80-4782-A040-342219060577}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

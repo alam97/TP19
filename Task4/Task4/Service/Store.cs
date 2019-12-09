@@ -214,46 +214,6 @@ namespace Services
 
         #endregion
 
-        #region exists
-        public Boolean ProductExists(Product p)
-        {
-            var query =
-                from product in db.Products
-                where product.Id == p.Id
-                select product;
-
-            if (query.Count() > 0)
-                return true;
-            else
-                return false;
-        }
-        public Boolean UserExists(Person p)
-        {
-            var query =
-                from person in db.Persons
-                where person.Id == p.Id
-                select person;
-
-            if (query.Count() > 0)
-                return true;
-            else
-                return false;
-        }
-        public Boolean ProductExistsinInventory(Product p)
-        {
-            var query =
-               from inventory in db.Inventories
-               where inventory.ProductId == p.Id
-               select inventory;
-
-            if (query.Count() > 0)
-                return true;
-            else
-                return false;
-        }
-        #endregion
-
-
         #region shop actions
         // buy an item -> creates an invoice, updates inventory
         public void BuyItem(Person user, Product product, int amount)

@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using Data;
+using System.Collections.ObjectModel;
 
 namespace Services
 {
@@ -45,6 +46,8 @@ namespace Services
         }
         #endregion
 
+        // C.R.U.D.
+
         #region create
         public void CreateUser(string firstName, string lastName, int userId)
         {
@@ -76,6 +79,82 @@ namespace Services
                 EventDate = date
             };
             AddEvent(ewent);
+        }
+        #endregion
+
+        #region read
+
+        public int GetAmountOfProduct(Product p)
+        {
+            var query =
+                from inventory in db.Inventories
+                where inventory.ProductId == p.Id
+                select inventory;
+            if (query.Count() > 0)
+                return (int)query.First().amount;
+            else
+                throw new Exception("This product does not exist in inventory");
+        }
+
+        public ObservableCollection<Person> GetPersons(String search)
+        {
+            var result = (from p in db.Persons
+                          where p.FirstName.Contains(search)
+                          || p.LastName.Contains(search)
+                          select p);
+
+            ObservableCollection<Person> people = new ObservableCollection<Person>(result);
+            return people;
+        }
+
+        public ObservableCollection<Person> GetAllPersons()
+        {
+            var result = (from p in db.Persons
+                          select p);
+            ObservableCollection<Person> people = new ObservableCollection<Person>(result);
+            return people;
+        }
+
+        public ObservableCollection<Product> GetProducts(String search)
+        {
+            var result = (from p in db.Products
+                          where p.Name.Contains(search)
+                          select p);
+
+            ObservableCollection<Product> products = new ObservableCollection<Product>(result);
+            return products;
+        }
+
+        public ObservableCollection<Product> GetAllProducts()
+        {
+            var result = (from p in db.Products
+                          select p);
+            ObservableCollection<Product> products = new ObservableCollection<Product>(result);
+            return products;
+        }
+
+
+        #endregion
+
+        #region update
+        public void UpdateInventory(Product p, int amount)
+        {
+            var query =
+                from inventory in db.Inventories
+                where inventory.ProductId == p.Id
+                select inventory;
+            if (query.Count() > 0)
+            {
+                foreach (Inventory inv in query)
+                {
+                    inv.amount = inv.amount - amount;
+                }
+                db.SubmitChanges();
+            }
+            else
+            {
+                throw new Exception("This product does not exist in inventory");
+            }
         }
         #endregion
 
@@ -135,28 +214,6 @@ namespace Services
 
         #endregion
 
-        #region update
-        public void UpdateInventory(Product p, int amount)
-        {
-            var query =
-                from inventory in db.Inventories
-                where inventory.ProductId == p.Id
-                select inventory;
-            if (query.Count() > 0)
-            {
-                foreach (Inventory inv in query)
-                {
-                    inv.amount = inv.amount - amount;
-                }
-                db.SubmitChanges();
-            }
-            else
-            {
-                throw new Exception("This product does not exist in inventory");
-            }
-        }
-        #endregion
-
         #region exists
         public Boolean ProductExists(Product p)
         {
@@ -196,17 +253,6 @@ namespace Services
         }
         #endregion
 
-        public int GetAmountOfProduct(Product p)
-        { 
-            var query =
-                from inventory in db.Inventories
-                where inventory.ProductId == p.Id
-                select inventory;
-            if (query.Count() > 0)
-                return (int)query.First().amount;
-            else
-                throw new Exception("This product does not exist in inventory");
-        }
 
         #region shop actions
         // buy an item -> creates an invoice, updates inventory

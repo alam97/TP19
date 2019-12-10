@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Data
+namespace Task4
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -20,61 +20,60 @@ namespace Data
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-	
-	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="C:\\USERS\\ALEKSANDER\\DESKTOP\\PULPIT\\STUDIA\\TP\\TP19\\TASK4\\TASK4\\TASK4\\SHOPDB.MDF")]
-	public partial class LinqToSqlDataContext : System.Data.Linq.DataContext
-	{
-		
-		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
-		
-    #region Extensibility Method Definitions
-    partial void OnCreated();
-    partial void InsertEvent(Event instance);
-    partial void UpdateEvent(Event instance);
-    partial void DeleteEvent(Event instance);
-    partial void InsertPerson(Person instance);
-    partial void UpdatePerson(Person instance);
-    partial void DeletePerson(Person instance);
-    partial void InsertProduct(Product instance);
-    partial void UpdateProduct(Product instance);
-    partial void DeleteProduct(Product instance);
-    partial void InsertInventory(Inventory instance);
-    partial void UpdateInventory(Inventory instance);
-    partial void DeleteInventory(Inventory instance);
-    #endregion
-		
-		public LinqToSqlDataContext() : 
-				base(global::Task4.Properties.Settings.Default.C__USERS_ALEKSANDER_DESKTOP_PULPIT_STUDIA_TP_TP19_TASK4_TASK4_TASK4_SHOPDB_MDFConnectionString, mappingSource)
-		{
-			OnCreated();
-		}
-		
-		public LinqToSqlDataContext(string connection) : 
-				base(connection, mappingSource)
-		{
-			OnCreated();
-		}
-		
-		public LinqToSqlDataContext(System.Data.IDbConnection connection) : 
-				base(connection, mappingSource)
-		{
-			OnCreated();
-		}
-		
-		public LinqToSqlDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
-				base(connection, mappingSource)
-		{
-			OnCreated();
-		}
-		
-		public LinqToSqlDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
-				base(connection, mappingSource)
-		{
-			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<Event> Events
+
+    [global::System.Data.Linq.Mapping.DatabaseAttribute(Name = "ShopDB.mdf")]
+    public partial class LinqToSqlDataContext : System.Data.Linq.DataContext
+    {
+
+        private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
+
+        #region Extensibility Method Definitions
+        partial void OnCreated();
+        partial void InsertEvent(Event instance);
+        partial void UpdateEvent(Event instance);
+        partial void DeleteEvent(Event instance);
+        partial void InsertPerson(Person instance);
+        partial void UpdatePerson(Person instance);
+        partial void DeletePerson(Person instance);
+        partial void InsertProduct(Product instance);
+        partial void UpdateProduct(Product instance);
+        partial void DeleteProduct(Product instance);
+        partial void InsertInventory(Inventory instance);
+        partial void UpdateInventory(Inventory instance);
+        partial void DeleteInventory(Inventory instance);
+        #endregion
+
+        public LinqToSqlDataContext() :
+                base(global::Task4.Properties.Settings.Default.ShopDBConnectionString, mappingSource)
+        {
+            OnCreated();
+        }
+
+        public LinqToSqlDataContext(string connection) :
+                base(connection, mappingSource)
+        {
+            OnCreated();
+        }
+
+        public LinqToSqlDataContext(System.Data.IDbConnection connection) :
+                base(connection, mappingSource)
+        {
+            OnCreated();
+        }
+
+        public LinqToSqlDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) :
+                base(connection, mappingSource)
+        {
+            OnCreated();
+        }
+
+        public LinqToSqlDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) :
+                base(connection, mappingSource)
+        {
+            OnCreated();
+        }
+
+        public System.Data.Linq.Table<Event> Events
 		{
 			get
 			{

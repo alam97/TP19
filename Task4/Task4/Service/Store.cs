@@ -1,14 +1,14 @@
 ﻿using System.Data;
 using System;
 using System.Linq;
-using Data;
 using System.Collections.ObjectModel;
+using Task4;
 
 namespace Services
 {
-    class Store
-
+    public class Store
     {
+
         private LinqToSqlDataContext db;
 
         public Store()
@@ -43,6 +43,45 @@ namespace Services
             };
             db.Inventories.InsertOnSubmit(inventory);
             db.SubmitChanges();
+        }
+        #endregion
+
+        #region exists
+        public Boolean ProductExists(int Id)
+        {
+            var query =
+                from product in db.Products
+                where product.Id == Id
+                select product;
+
+            if (query.Count() > 0)
+                return true;
+            else
+                return false;
+        }
+        public Boolean UserExists(int Id)
+        {
+            var query =
+                from person in db.Persons
+                where person.Id == Id
+                select person;
+
+            if (query.Count() > 0)
+                return true;
+            else
+                return false;
+        }
+        public Boolean ProductExistsinInventory(int Id)
+        {
+            var query =
+               from inventory in db.Inventories
+               where inventory.ProductId == Id
+               select inventory;
+
+            if (query.Count() > 0)
+                return true;
+            else
+                return false;
         }
         #endregion
 
@@ -133,6 +172,22 @@ namespace Services
             return products;
         }
 
+        public ObservableCollection<Event> GetEvents(int search)
+        {
+            var result = (from e in db.Events
+                          where e.Id == search
+                          select e);
+            ObservableCollection<Event> events = new ObservableCollection<Event>(result);
+            return events;
+        }
+
+        public ObservableCollection<Event> GetAllEvents()
+        {
+            var result = (from e in db.Events
+                          select e);
+            ObservableCollection<Event> events = new ObservableCollection<Event>(result);
+            return events;
+        }
 
         #endregion
 
@@ -159,11 +214,11 @@ namespace Services
         #endregion
 
         #region delete
-        public void DeleteUser(Person u)
+        public void DeleteUser(Person p)
         {
             var deletePerson =
                 from person in db.Persons
-                where person.Id == u.Id
+                where person.Id == p.Id
                 select person;
 
             if (deletePerson.Count() > 0)
@@ -212,47 +267,24 @@ namespace Services
             }
         }
 
+        public void RemoveFromInventory(Product p)
+        {
+            var query =
+                from inventory in db.Inventories
+                where inventory.ProductId == p.Id
+                select inventory;
+            if (query.Count() > 0)
+            {
+                db.Inventories.DeleteOnSubmit(query.First());
+
+            }
+            else
+            {
+                throw new Exception("This product does not exist in inventory");
+            }
+        }
+
         #endregion
-
-        #region exists
-        public Boolean ProductExists(Product p)
-        {
-            var query =
-                from product in db.Products
-                where product.Id == p.Id
-                select product;
-
-            if (query.Count() > 0)
-                return true;
-            else
-                return false;
-        }
-        public Boolean UserExists(Person p)
-        {
-            var query =
-                from person in db.Persons
-                where person.Id == p.Id
-                select person;
-
-            if (query.Count() > 0)
-                return true;
-            else
-                return false;
-        }
-        public Boolean ProductExistsinInventory(Product p)
-        {
-            var query =
-               from inventory in db.Inventories
-               where inventory.ProductId == p.Id
-               select inventory;
-
-            if (query.Count() > 0)
-                return true;
-            else
-                return false;
-        }
-        #endregion
-
 
         #region shop actions
         // buy an item -> creates an invoice, updates inventory

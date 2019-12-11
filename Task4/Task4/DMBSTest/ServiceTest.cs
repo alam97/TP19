@@ -44,11 +44,13 @@ namespace DMBSTest
             };
             store.AddProduct(product1);
             Assert.AreEqual(true, store.ProductExists(137));
+            store.RemoveFromInventory(product1);
             store.DeleteProduct(product1);
             Assert.AreEqual(false, store.ProductExists(137));
 
             store.CreateProduct("Sword", 17.12, 137);
             Assert.AreEqual(true, store.ProductExists(137));
+            store.RemoveFromInventory(product1);
             store.DeleteProduct(product1);
             Assert.AreEqual(false, store.ProductExists(137));
         }
@@ -83,6 +85,7 @@ namespace DMBSTest
             store.DeleteEvent(ewent);
             Assert.AreEqual(false, store.GetAllEvents().Contains(ewent));
             store.DeleteUser(person1);
+            store.RemoveFromInventory(product1);
             store.DeleteProduct(product1); 
         }
 
@@ -96,7 +99,7 @@ namespace DMBSTest
                 Id = 137
             };
             store.AddProduct(product1);
-            store.AddToInventory(product1, 200);
+            store.UpdateInventory(product1, 200);
             Assert.AreEqual(200, store.GetAmountOfProduct(product1));
             store.RemoveFromInventory(product1);
             try
@@ -127,7 +130,7 @@ namespace DMBSTest
                 Id = 137
             };
             store.AddProduct(product1);
-            store.AddToInventory(product1, 200);
+            store.UpdateInventory(product1, 200);
             store.BuyItem(person1, product1, 50);
 
             Event ewent = new Event()
@@ -138,11 +141,11 @@ namespace DMBSTest
                 Id = 0
             };
             Assert.AreEqual(150, store.GetAmountOfProduct(product1));
-            store.DeleteEvent(ewent);
+             store.DeleteEvent(ewent);
             Assert.AreEqual(store.GetAllEvents().Contains(ewent), false);
-           store.RemoveFromInventory(product1);
+              store.RemoveFromInventory(product1);
            store.DeleteUser(person1);
-          store.DeleteProduct(product1);
+         store.DeleteProduct(product1);
         }
     }
 }

@@ -25,7 +25,9 @@ namespace Services
         public void AddProduct(Product p)
         {
             db.Products.InsertOnSubmit(p);
+            AddToInventory(p, 0);
             db.SubmitChanges();
+           
 
         }
         public void AddEvent(Event e)
@@ -202,7 +204,7 @@ namespace Services
             {
                 foreach (Inventory inv in query)
                 {
-                    inv.amount = inv.amount - amount;
+                    inv.amount = inv.amount + amount;
                 }
                 db.SubmitChanges();
             }
@@ -295,7 +297,7 @@ namespace Services
             else
             {
                 CreateEvent(user, product, DateTime.Today);
-                UpdateInventory(product, amount);
+                UpdateInventory(product, -amount);
             }
          
         }

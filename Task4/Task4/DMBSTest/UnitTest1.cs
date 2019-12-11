@@ -10,10 +10,12 @@ namespace DMBSTest
     [TestClass]
     public class UnitTest1
     {
+
+        Store store = new Store();
         [TestMethod]
         public void AddUserAndDeleteUser()
         {
-            Store store = new Store();
+            
             Person person1 = new Person()
             {
                 FirstName = "Aleksander",
@@ -34,7 +36,6 @@ namespace DMBSTest
         [TestMethod]
         public void AddProductAndDeleteProduct()
         {
-            Store store = new Store();
             Product product1 = new Product()
             {
                 Name = "Sword",
@@ -55,7 +56,6 @@ namespace DMBSTest
         [TestMethod]
         public void AddEventAndDeleteEvent()
         {
-            Store store = new Store();
             Product product1 = new Product()
             {
                 Name = "Sword",
@@ -89,7 +89,6 @@ namespace DMBSTest
         [TestMethod]
         public void AddToInventoryAndRemoveFromInventory()
         {
-            Store store = new Store();
             Product product1 = new Product()
             {
                 Name = "Sword",
@@ -114,7 +113,6 @@ namespace DMBSTest
         [TestMethod]
         public void BuyItem()
         {
-            Store store = new Store();
             Person person1 = new Person()
             {
                 FirstName = "Aleksander",
@@ -142,9 +140,9 @@ namespace DMBSTest
             Assert.AreEqual(150, store.GetAmountOfProduct(product1));
             store.DeleteEvent(ewent);
             Assert.AreEqual(store.GetAllEvents().Contains(ewent), false);
-            store.RemoveFromInventory(product1);
-            store.DeleteUser(person1);
-            store.DeleteProduct(product1);
+           store.RemoveFromInventory(product1);
+           store.DeleteUser(person1);
+          store.DeleteProduct(product1);
         }
     }
 }

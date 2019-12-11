@@ -22,9 +22,9 @@
     <Type Name="Product">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
       <Association Name="Product_Event" Member="Events" ThisKey="Id" OtherKey="ProductId" Type="Event" />
-      <Association Name="Inventory_Product" Member="Inventory" ThisKey="Id" OtherKey="ProductId" Type="Inventory" IsForeignKey="true" />
+      <Association Name="Product_Inventory" Member="Inventories" ThisKey="Id" OtherKey="ProductId" Type="Inventory" />
     </Type>
   </Table>
   <Table Name="dbo.Inventory" Member="Inventories">
@@ -32,7 +32,7 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Inventory_Product" Member="Products" ThisKey="ProductId" OtherKey="Id" Type="Product" />
+      <Association Name="Product_Inventory" Member="Product" ThisKey="ProductId" OtherKey="Id" Type="Product" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

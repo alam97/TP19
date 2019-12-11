@@ -20,60 +20,61 @@ namespace Task4
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-
-    [global::System.Data.Linq.Mapping.DatabaseAttribute(Name = "ShopDB.mdf")]
-    public partial class LinqToSqlDataContext : System.Data.Linq.DataContext
-    {
-
-        private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
-
-        #region Extensibility Method Definitions
-        partial void OnCreated();
-        partial void InsertEvent(Event instance);
-        partial void UpdateEvent(Event instance);
-        partial void DeleteEvent(Event instance);
-        partial void InsertPerson(Person instance);
-        partial void UpdatePerson(Person instance);
-        partial void DeletePerson(Person instance);
-        partial void InsertProduct(Product instance);
-        partial void UpdateProduct(Product instance);
-        partial void DeleteProduct(Product instance);
-        partial void InsertInventory(Inventory instance);
-        partial void UpdateInventory(Inventory instance);
-        partial void DeleteInventory(Inventory instance);
-        #endregion
-
-        public LinqToSqlDataContext() :
-                base(global::Task4.Properties.Settings.Default.ShopDBConnectionString, mappingSource)
-        {
-            OnCreated();
-        }
-
-        public LinqToSqlDataContext(string connection) :
-                base(connection, mappingSource)
-        {
-            OnCreated();
-        }
-
-        public LinqToSqlDataContext(System.Data.IDbConnection connection) :
-                base(connection, mappingSource)
-        {
-            OnCreated();
-        }
-
-        public LinqToSqlDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) :
-                base(connection, mappingSource)
-        {
-            OnCreated();
-        }
-
-        public LinqToSqlDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) :
-                base(connection, mappingSource)
-        {
-            OnCreated();
-        }
-
-        public System.Data.Linq.Table<Event> Events
+	
+	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="C:\\USERS\\ALEKSANDER\\DESKTOP\\PULPIT\\STUDIA\\TP\\TP19\\TASK4\\TASK4\\TASK4\\SHOPDB.MDF")]
+	public partial class LinqToSqlDataContext : System.Data.Linq.DataContext
+	{
+		
+		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
+		
+    #region Extensibility Method Definitions
+    partial void OnCreated();
+    partial void InsertEvent(Event instance);
+    partial void UpdateEvent(Event instance);
+    partial void DeleteEvent(Event instance);
+    partial void InsertPerson(Person instance);
+    partial void UpdatePerson(Person instance);
+    partial void DeletePerson(Person instance);
+    partial void InsertProduct(Product instance);
+    partial void UpdateProduct(Product instance);
+    partial void DeleteProduct(Product instance);
+    partial void InsertInventory(Inventory instance);
+    partial void UpdateInventory(Inventory instance);
+    partial void DeleteInventory(Inventory instance);
+    #endregion
+		
+		public LinqToSqlDataContext() : 
+				base(global::Task4.Properties.Settings.Default.C__USERS_ALEKSANDER_DESKTOP_PULPIT_STUDIA_TP_TP19_TASK4_TASK4_TASK4_SHOPDB_MDFConnectionString, mappingSource)
+		{
+			OnCreated();
+		}
+		
+		public LinqToSqlDataContext(string connection) : 
+				base(connection, mappingSource)
+		{
+			OnCreated();
+		}
+		
+		public LinqToSqlDataContext(System.Data.IDbConnection connection) : 
+				base(connection, mappingSource)
+		{
+			OnCreated();
+		}
+		
+		public LinqToSqlDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+				base(connection, mappingSource)
+		{
+			OnCreated();
+		}
+		
+		public LinqToSqlDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+				base(connection, mappingSource)
+		{
+			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<Event> Events
 		{
 			get
 			{
@@ -474,7 +475,7 @@ namespace Task4
 		
 		private EntitySet<Event> _Events;
 		
-		private EntityRef<Inventory> _Inventory;
+		private EntitySet<Inventory> _Inventories;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -491,7 +492,7 @@ namespace Task4
 		public Product()
 		{
 			this._Events = new EntitySet<Event>(new Action<Event>(this.attach_Events), new Action<Event>(this.detach_Events));
-			this._Inventory = default(EntityRef<Inventory>);
+			this._Inventories = new EntitySet<Inventory>(new Action<Inventory>(this.attach_Inventories), new Action<Inventory>(this.detach_Inventories));
 			OnCreated();
 		}
 		
@@ -506,10 +507,6 @@ namespace Task4
 			{
 				if ((this._Id != value))
 				{
-					if (this._Inventory.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnIdChanging(value);
 					this.SendPropertyChanging();
 					this._Id = value;
@@ -539,7 +536,7 @@ namespace Task4
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(18,0) NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(5,2) NOT NULL")]
 		public decimal Price
 		{
 			get
@@ -572,37 +569,16 @@ namespace Task4
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Inventory_Product", Storage="_Inventory", ThisKey="Id", OtherKey="ProductId", IsForeignKey=true)]
-		public Inventory Inventory
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_Inventory", Storage="_Inventories", ThisKey="Id", OtherKey="ProductId")]
+		public EntitySet<Inventory> Inventories
 		{
 			get
 			{
-				return this._Inventory.Entity;
+				return this._Inventories;
 			}
 			set
 			{
-				Inventory previousValue = this._Inventory.Entity;
-				if (((previousValue != value) 
-							|| (this._Inventory.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Inventory.Entity = null;
-						previousValue.Products.Remove(this);
-					}
-					this._Inventory.Entity = value;
-					if ((value != null))
-					{
-						value.Products.Add(this);
-						this._Id = value.ProductId;
-					}
-					else
-					{
-						this._Id = default(int);
-					}
-					this.SendPropertyChanged("Inventory");
-				}
+				this._Inventories.Assign(value);
 			}
 		}
 		
@@ -637,6 +613,18 @@ namespace Task4
 			this.SendPropertyChanging();
 			entity.Product = null;
 		}
+		
+		private void attach_Inventories(Inventory entity)
+		{
+			this.SendPropertyChanging();
+			entity.Product = this;
+		}
+		
+		private void detach_Inventories(Inventory entity)
+		{
+			this.SendPropertyChanging();
+			entity.Product = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Inventory")]
@@ -651,7 +639,7 @@ namespace Task4
 		
 		private System.Nullable<int> _amount;
 		
-		private EntitySet<Product> _Products;
+		private EntityRef<Product> _Product;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -667,7 +655,7 @@ namespace Task4
 		
 		public Inventory()
 		{
-			this._Products = new EntitySet<Product>(new Action<Product>(this.attach_Products), new Action<Product>(this.detach_Products));
+			this._Product = default(EntityRef<Product>);
 			OnCreated();
 		}
 		
@@ -702,6 +690,10 @@ namespace Task4
 			{
 				if ((this._ProductId != value))
 				{
+					if (this._Product.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnProductIdChanging(value);
 					this.SendPropertyChanging();
 					this._ProductId = value;
@@ -731,16 +723,37 @@ namespace Task4
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Inventory_Product", Storage="_Products", ThisKey="ProductId", OtherKey="Id")]
-		public EntitySet<Product> Products
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_Inventory", Storage="_Product", ThisKey="ProductId", OtherKey="Id", IsForeignKey=true)]
+		public Product Product
 		{
 			get
 			{
-				return this._Products;
+				return this._Product.Entity;
 			}
 			set
 			{
-				this._Products.Assign(value);
+				Product previousValue = this._Product.Entity;
+				if (((previousValue != value) 
+							|| (this._Product.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Product.Entity = null;
+						previousValue.Inventories.Remove(this);
+					}
+					this._Product.Entity = value;
+					if ((value != null))
+					{
+						value.Inventories.Add(this);
+						this._ProductId = value.Id;
+					}
+					else
+					{
+						this._ProductId = default(int);
+					}
+					this.SendPropertyChanged("Product");
+				}
 			}
 		}
 		
@@ -762,18 +775,6 @@ namespace Task4
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Products(Product entity)
-		{
-			this.SendPropertyChanging();
-			entity.Inventory = this;
-		}
-		
-		private void detach_Products(Product entity)
-		{
-			this.SendPropertyChanging();
-			entity.Inventory = null;
 		}
 	}
 }

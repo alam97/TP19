@@ -97,5 +97,17 @@
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Product.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Invoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Inventory.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="700" Width="800">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF1A183C" Offset="1"/>
+            <GradientStop Color="White"/>
+            <GradientStop Color="#FF55536E" Offset="0.603"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
-        
+        <Image HorizontalAlignment="Left" Height="125" Margin="136.98,62.715,0,0" VerticalAlignment="Top" Width="125" Source="User.png"/>
+        <Image HorizontalAlignment="Left" Height="125" Margin="539.987,62.715,0,0" VerticalAlignment="Top" Width="125" Source="Product.png"/>
+        <Image HorizontalAlignment="Left" Height="125" Margin="158.341,346.101,0,0" VerticalAlignment="Top" Width="125" Source="Invoice.png"/>
+        <Image HorizontalAlignment="Left" Height="125" Margin="539.987,346.101,0,0" VerticalAlignment="Top" Width="125" Source="Inventory.png" RenderTransformOrigin="0.49,1.105"/>
+        <TextBlock HorizontalAlignment="Left" Height="37.342" Margin="62.93,187.715,0,0" TextAlignment="Center" TextWrapping="Wrap" Text=": USER" VerticalAlignment="Top" Width="259.178" FontFamily="Courier New" FontSize="16" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Height="37.342" Margin="475.905,187.715,0,0" TextAlignment="Center" TextWrapping="Wrap" Text=": PRODUCT" VerticalAlignment="Top" Width="259.178" FontFamily="Courier New" FontSize="16" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Height="37.342" Margin="62.93,498.158,0,0" TextAlignment="Center" TextWrapping="Wrap" Text=": INVOICE" VerticalAlignment="Top" Width="259.178" FontFamily="Courier New" FontSize="16" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Height="37.342" Margin="475.905,498.158,0,0" TextAlignment="Center" TextWrapping="Wrap" Text=": INVENTORY" VerticalAlignment="Top" Width="259.178" FontFamily="Courier New" FontSize="16" FontWeight="Bold"/>
+        <StackPanel HorizontalAlignment="Left" Height="80" Margin="62.93,230.057,0,0" VerticalAlignment="Top" Width="259.178">
+            <Button Content="View all" HorizontalAlignment="Left" Height="40" Width="259.178"/>
+            <Button Content="Add new" HorizontalAlignment="Left" Height="40" Width="259.178"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="80" Margin="471.519,228.633,0,0" VerticalAlignment="Top" Width="259.178">
+            <Button Content="View all" HorizontalAlignment="Left" Height="40" Width="259.178"/>
+            <Button Content="Add new" HorizontalAlignment="Left" Height="40" Width="259.178"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="80" Margin="62.93,535.5,0,0" VerticalAlignment="Top" Width="259.178">
+            <Button Content="View all" HorizontalAlignment="Left" Height="40" Width="259.178"/>
+            <Button Content="Add new" HorizontalAlignment="Left" Height="40" Width="259.178"/>
+        </StackPanel>
+        <Button Content="View status" HorizontalAlignment="Left" Height="40" Width="259.178" Margin="471.519,535.5,0,93.5"/>
+
     </Grid>
 </Window>

@@ -22,7 +22,7 @@ namespace Task4
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="C:\\USERS\\ALEKSANDER\\DESKTOP\\PULPIT\\STUDIA\\TP\\TP19\\TASK4\\TASK4\\TASK4\\SHOPDB.MDF")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ShopDB.mdf")]
 	public partial class LinqToSqlDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -45,7 +45,7 @@ namespace Task4
     #endregion
 		
 		public LinqToSqlDataContext() : 
-				base(global::Task4.Properties.Settings.Default.C__USERS_ALEKSANDER_DESKTOP_PULPIT_STUDIA_TP_TP19_TASK4_TASK4_TASK4_SHOPDB_MDFConnectionString, mappingSource)
+				base(global::Task4.Properties.Settings.Default.ShopDBConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

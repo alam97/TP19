@@ -22,7 +22,7 @@ namespace Presentation
     {
         public MainWindow()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }

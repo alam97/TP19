@@ -14,10 +14,10 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
-        <Image HorizontalAlignment="Left" Height="125" Margin="136.98,62.715,0,0" VerticalAlignment="Top" Width="125" Source="User.png"/>
-        <Image HorizontalAlignment="Left" Height="125" Margin="539.987,62.715,0,0" VerticalAlignment="Top" Width="125" Source="Product.png"/>
-        <Image HorizontalAlignment="Left" Height="125" Margin="158.341,346.101,0,0" VerticalAlignment="Top" Width="125" Source="Invoice.png"/>
-        <Image HorizontalAlignment="Left" Height="125" Margin="539.987,346.101,0,0" VerticalAlignment="Top" Width="125" Source="Inventory.png" RenderTransformOrigin="0.49,1.105"/>
+        <Image HorizontalAlignment="Left" Height="125" Margin="136.98,62.715,0,0" VerticalAlignment="Top" Width="125" Source="Resources/User.png"/>
+        <Image HorizontalAlignment="Left" Height="125" Margin="539.987,62.715,0,0" VerticalAlignment="Top" Width="125" Source="Resources/Product.png"/>
+        <Image HorizontalAlignment="Left" Height="125" Margin="158.341,346.101,0,0" VerticalAlignment="Top" Width="125" Source="Resources/Invoice.png"/>
+        <Image HorizontalAlignment="Left" Height="125" Margin="539.987,346.101,0,0" VerticalAlignment="Top" Width="125" Source="Resources/Inventory.png" RenderTransformOrigin="0.49,1.105"/>
         <TextBlock HorizontalAlignment="Left" Height="37.342" Margin="62.93,187.715,0,0" TextAlignment="Center" TextWrapping="Wrap" Text=": USER" VerticalAlignment="Top" Width="259.178" FontFamily="Courier New" FontSize="16" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Height="37.342" Margin="475.905,187.715,0,0" TextAlignment="Center" TextWrapping="Wrap" Text=": PRODUCT" VerticalAlignment="Top" Width="259.178" FontFamily="Courier New" FontSize="16" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Height="37.342" Margin="62.93,498.158,0,0" TextAlignment="Center" TextWrapping="Wrap" Text=": INVOICE" VerticalAlignment="Top" Width="259.178" FontFamily="Courier New" FontSize="16" FontWeight="Bold"/>

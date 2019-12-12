@@ -35,6 +35,7 @@
             <Button Content="Add new" HorizontalAlignment="Left" Height="40" Width="259.178"/>
         </StackPanel>
         <Button Content="View status" HorizontalAlignment="Left" Height="40" Width="259.178" Margin="471.519,535.5,0,93.5"/>
+       
 
     </Grid>
 </Window>

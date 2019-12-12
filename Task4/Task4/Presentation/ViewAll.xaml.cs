@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Presentation
 {
     /// <summary>
-    /// Interaction logic for InventoryWindow.xaml
+    /// Interaction logic for ViewAll.xaml
     /// </summary>
-    public partial class InventoryWindow : Window
+    public partial class ViewAll : Window
     {
-        public InventoryWindow()
+        public ViewAll()
         {
             InitializeComponent();
         }

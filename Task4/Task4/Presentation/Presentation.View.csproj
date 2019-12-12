@@ -55,9 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="InventoryWindow.xaml.cs">
-      <DependentUpon>InventoryWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="InvoiceManagementWindow.xaml.cs">
       <DependentUpon>InvoiceManagementWindow.xaml</DependentUpon>
     </Compile>
@@ -67,10 +64,9 @@
     <Compile Include="UserManagementWindow.xaml.cs">
       <DependentUpon>UserManagementWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="InventoryWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="ViewAll.xaml.cs">
+      <DependentUpon>ViewAll.xaml</DependentUpon>
+    </Compile>
     <Page Include="InvoiceManagementWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -92,6 +88,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserManagementWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewAll.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

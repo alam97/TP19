@@ -51,6 +51,14 @@
     <Compile Include="ViewModel\MVVMLight\RelayCommand.cs" />
     <Compile Include="ViewModel\MVVMLight\ViewModelBase.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{9f2e147f-ec80-4782-a040-342219060577}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

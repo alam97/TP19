@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PresentationModel
 {
-    class InventoryModel : ViewModelBase
+    class InventoryManagmentModel : ViewModelBase
     {
     }
 }

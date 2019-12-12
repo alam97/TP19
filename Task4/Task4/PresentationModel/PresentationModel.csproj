@@ -41,10 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InventoryModel.cs" />
-    <Compile Include="InvoiceManagementModel.cs" />
-    <Compile Include="ProductManagementModel.cs" />
-    <Compile Include="UserManagementModel.cs" />
+    <Compile Include="Model\InventoryManagmentModel.cs" />
+    <Compile Include="Model\InvoiceManagementModel.cs" />
+    <Compile Include="Model\ProductManagementModel.cs" />
+    <Compile Include="Model\UserManagementModel.cs" />
     <Compile Include="ViewModel\IWindow.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

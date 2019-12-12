@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InventoryModel.cs" />
+    <Compile Include="InvoiceManagementModel.cs" />
+    <Compile Include="ProductManagementModel.cs" />
+    <Compile Include="UserManagementModel.cs" />
+    <Compile Include="ViewModel\IWindow.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\MVVMLight\RelayCommand.cs" />

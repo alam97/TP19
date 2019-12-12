@@ -14,10 +14,10 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
-        <Button Content="Buy Item" HorizontalAlignment="Left" Margin="635,45,0,0" VerticalAlignment="Top" Width="149" Height="35" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Height="35" Margin="454,45,0,0" TextWrapping="Wrap" Text="Amount" VerticalAlignment="Top" Width="153" FontSize="24" TextAlignment="Center"/>
-        <ComboBox HorizontalAlignment="Left" Margin="233,45,0,0" VerticalAlignment="Top" Width="180" Height="35"/>
-        <ComboBox HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="180" Height="35"/>
+        <Button Content="Buy Item" HorizontalAlignment="Left" Margin="618,45,0,0" VerticalAlignment="Top" Width="149" Height="35" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Height="35" Margin="439,45,0,0" TextWrapping="Wrap" Text="Amount" VerticalAlignment="Top" Width="153" FontSize="24" TextAlignment="Center"/>
+        <ComboBox HorizontalAlignment="Left" Margin="230,45,0,0" VerticalAlignment="Top" Width="180" Height="35"/>
+        <ComboBox HorizontalAlignment="Left" Margin="25,45,0,0" VerticalAlignment="Top" Width="180" Height="35"/>
 
     </Grid>
 </Window>

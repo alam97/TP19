@@ -14,9 +14,9 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
-        <Button Content="Add User" HorizontalAlignment="Left" Margin="624,45,0,0" VerticalAlignment="Top" Width="149" Height="35" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Height="35" Margin="431,45,0,0" TextWrapping="Wrap" Text="LastName" VerticalAlignment="Top" Width="153" FontSize="24" TextAlignment="Center"/>
-        <TextBox HorizontalAlignment="Left" Height="35" Margin="238,45,0,0" TextWrapping="Wrap" Text="FirstName" VerticalAlignment="Top" Width="153" FontSize="24" TextAlignment="Center"/>
+        <Button Content="Add User" HorizontalAlignment="Left" Margin="607,45,0,0" VerticalAlignment="Top" Width="149" Height="35" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Height="35" Margin="416,45,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top" Width="153" FontSize="24" TextAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="35" Margin="228,45,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" Width="153" FontSize="24" TextAlignment="Center"/>
         <TextBox HorizontalAlignment="Left" Height="35" Margin="43,45,0,0" TextWrapping="Wrap" Text="Id" VerticalAlignment="Top" Width="153" FontSize="24" TextAlignment="Center"/>
 
 

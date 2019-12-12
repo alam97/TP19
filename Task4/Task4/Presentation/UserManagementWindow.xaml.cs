@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PresentationModel.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace Presentation
     /// <summary>
     /// Interaction logic for UserManagementWindow.xaml
     /// </summary>
-    public partial class UserManagementWindow : Window
+    public partial class UserManagementWindow : Window, IWindow
     {
         public UserManagementWindow()
         {

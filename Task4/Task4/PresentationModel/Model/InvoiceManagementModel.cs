@@ -9,5 +9,11 @@ namespace PresentationModel
 {
     class InvoiceManagementModel : ViewModelBase
     {
+        public InvoiceManagementModel()
+        {
+
+        }
+
+        public RelayCommand ShowInvoiceManagementCommand { get; }
     }
 }

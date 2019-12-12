@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PresentationModel;
+using PresentationModel.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +24,18 @@ namespace Presentation
     {
         public MainWindow()
         {
-            //InitializeComponent();
+            InitializeComponent();
+        }
+
+        protected override void OnInitialized(EventArgs e)
+        {
+            base.OnInitialized(e);
+            MainViewModel vm = (MainViewModel)DataContext;
+            vm.UserManagementWindow = new Lazy<IWindow>(() => new UserManagementWindow());
+
+            //_vm.ProductManagementWindow = new Lazy<IWindow>(() => new ProductManagementWindow());
+
+            //_vm.MessageBoxShowDelegate = text => MessageBox.Show(text, "Button interaction", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

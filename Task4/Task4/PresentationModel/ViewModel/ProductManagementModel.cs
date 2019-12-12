@@ -9,10 +9,5 @@ namespace PresentationModel
 {
     class ProductManagementModel : ViewModelBase
     {
-        public ProductManagementModel()
-        {
-
-        }
-        public RelayCommand ShowProductManagementCommand { get; }
     }
 }

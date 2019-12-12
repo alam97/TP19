@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 
 namespace PresentationModel
 {
-    class ProductManagementModel : ViewModelBase
+    class UserManagementModel : ViewModelBase
     {
-        public ProductManagementModel()
-        {
-
-        }
-        public RelayCommand ShowProductManagementCommand { get; }
     }
 }

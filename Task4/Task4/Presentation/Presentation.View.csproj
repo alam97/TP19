@@ -129,7 +129,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PresentationModel\PresentationModel.csproj">
+      <Project>{71EE29D8-3F8A-4D2F-91DC-5D598199A846}</Project>
+      <Name>PresentationModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\User.png" />
   </ItemGroup>

@@ -1,5 +1,5 @@
-﻿using PresentationModel;
-using PresentationModel.ViewModel;
+﻿
+using Presentation.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,20 +22,18 @@ namespace Presentation
     /// </summary>
     public partial class MainWindow : Window
     {
+       
         public MainWindow()
         {
+            AddPersonView addPersonView = new AddPersonView();
+            AddInvetoryView addInvetoryView = new AddInvetoryView();
+            AddInvoiceView addInvoiceView = new AddInvoiceView();
+            AddProductView addProductView = new AddProductView();
+            ViewAll viewAll = new ViewAll();
             InitializeComponent();
+            DataContext = new StoreViewModel(addPersonView);
         }
 
-        protected override void OnInitialized(EventArgs e)
-        {
-            base.OnInitialized(e);
-            MainViewModel vm = (MainViewModel)DataContext;
-            vm.UserManagementWindow = new Lazy<IWindow>(() => new UserManagementWindow());
-
-            //_vm.ProductManagementWindow = new Lazy<IWindow>(() => new ProductManagementWindow());
-
-            //_vm.MessageBoxShowDelegate = text => MessageBox.Show(text, "Button interaction", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
+ 
     }
 }

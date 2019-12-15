@@ -1,5 +1,4 @@
-﻿using PresentationModel.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +15,11 @@ using System.Windows.Shapes;
 namespace Presentation
 {
     /// <summary>
-    /// Interaction logic for UserManagementWindow.xaml
+    /// Interaction logic for InvoiceManagementWindow.xaml
     /// </summary>
-    public partial class UserManagementWindow : Window, IWindow
+    public partial class AddInvoiceView : Window
     {
-        public UserManagementWindow()
+        public AddInvoiceView()
         {
             InitializeComponent();
         }

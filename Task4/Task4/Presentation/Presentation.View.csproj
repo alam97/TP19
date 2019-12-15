@@ -55,29 +55,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="InventoryManagmentWindow.xaml.cs">
-      <DependentUpon>InventoryManagmentWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="InvoiceManagementWindow.xaml.cs">
-      <DependentUpon>InvoiceManagementWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ProductManagementWindow.xaml.cs">
-      <DependentUpon>ProductManagementWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserManagementWindow.xaml.cs">
-      <DependentUpon>UserManagementWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewAll.xaml.cs">
       <DependentUpon>ViewAll.xaml</DependentUpon>
     </Compile>
-    <Page Include="InventoryManagmentWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="InvoiceManagementWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="View\AddInvetoryView.xaml.cs">
+      <DependentUpon>AddInvetoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddInvoiceView.xaml.cs">
+      <DependentUpon>AddInvoiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddPersonView.xaml.cs">
+      <DependentUpon>AddPersonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddProductView.xaml.cs">
+      <DependentUpon>AddProductView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -90,17 +82,25 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ProductManagementWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserManagementWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ViewAll.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddInvetoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AddInvoiceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AddPersonView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AddProductView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -143,5 +143,6 @@
     <Resource Include="Resources\Invoice.png" />
     <Resource Include="Resources\Product.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

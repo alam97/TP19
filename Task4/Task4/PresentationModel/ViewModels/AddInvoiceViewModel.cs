@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PresentationModel.ViewModel
+namespace PresentationModel.ViewModels
 {
-    public interface IWindow
+    class AddInvoiceViewModel
     {
-        void Show();
     }
 }

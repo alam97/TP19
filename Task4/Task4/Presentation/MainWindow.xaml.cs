@@ -31,7 +31,7 @@ namespace Presentation
             AddProductView addProductView = new AddProductView();
             ViewAll viewAll = new ViewAll();
             InitializeComponent();
-            DataContext = new StoreViewModel(addPersonView);
+            DataContext = new StoreViewModel(addPersonView, addInvoiceView, addInvetoryView, addProductView);
         }
 
  

@@ -111,12 +111,12 @@ namespace Services
             AddProduct(product);
         }
 
-        public void CreateEvent(Person user, Product catalog, DateTimeOffset date)
+        public void CreateEvent(int user, int catalog, DateTimeOffset date)
         {
             Event ewent = new Event()
             {
-                PersonId = user.Id,
-                ProductId = catalog.Id,
+                PersonId = user,
+                ProductId = catalog,
                 EventDate = date
             };
             AddEvent(ewent);
@@ -125,11 +125,11 @@ namespace Services
 
         #region read
 
-        public int GetAmountOfProduct(Product p)
+        public int GetAmountOfProduct(int p)
         {
             var query =
                 from inventory in db.Inventories
-                where inventory.ProductId == p.Id
+                where inventory.ProductId == p
                 select inventory;
             if (query.Count() > 0)
                 return (int)query.First().amount;
@@ -194,11 +194,11 @@ namespace Services
         #endregion
 
         #region update
-        public void UpdateInventory(Product p, int amount)
+        public void UpdateInventory(int p, int amount)
         {
             var query =
                 from inventory in db.Inventories
-                where inventory.ProductId == p.Id
+                where inventory.ProductId == p
                 select inventory;
             if (query.Count() > 0)
             {
@@ -290,7 +290,7 @@ namespace Services
 
         #region shop actions
         // buy an item -> creates an invoice, updates inventory
-        public void BuyItem(Person user, Product product, int amount)
+        public void BuyItem(int user, int product, int amount)
         {
             if (GetAmountOfProduct(product) < amount)
                 throw new Exception("There is not enough of this product in inventory");

@@ -99,12 +99,12 @@ namespace DMBSTest
                 Id = 137
             };
             store.AddProduct(product1);
-            store.UpdateInventory(product1, 200);
-            Assert.AreEqual(200, store.GetAmountOfProduct(product1));
+            store.UpdateInventory(product1.Id, 200);
+            Assert.AreEqual(200, store.GetAmountOfProduct(product1.Id));
             store.RemoveFromInventory(product1);
             try
             {
-                store.GetAmountOfProduct(product1);
+                store.GetAmountOfProduct(product1.Id);
             }
             catch (Exception e)
             {
@@ -130,8 +130,8 @@ namespace DMBSTest
                 Id = 137
             };
             store.AddProduct(product1);
-            store.UpdateInventory(product1, 200);
-            store.BuyItem(person1, product1, 50);
+            store.UpdateInventory(product1.Id, 200);
+            store.BuyItem(person1.Id, product1.Id, 50);
 
             Event ewent = new Event()
             {
@@ -140,7 +140,7 @@ namespace DMBSTest
                 EventDate = DateTime.Today,
                 Id = 0
             };
-            Assert.AreEqual(150, store.GetAmountOfProduct(product1));
+            Assert.AreEqual(150, store.GetAmountOfProduct(product1.Id));
              store.DeleteEvent(ewent);
             Assert.AreEqual(store.GetAllEvents().Contains(ewent), false);
               store.RemoveFromInventory(product1);

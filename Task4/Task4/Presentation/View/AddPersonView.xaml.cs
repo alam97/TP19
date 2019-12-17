@@ -23,7 +23,6 @@ namespace Presentation
         public AddPersonView()
         {
             InitializeComponent();
-            DataContext = new AddPersonViewModel();
         }
 
 

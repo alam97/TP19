@@ -55,9 +55,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\AddInventoryButtonCommand.cs" />
+    <Compile Include="Commands\AddInvoiceButtonCommand.cs" />
+    <Compile Include="Commands\AddInvoiceCommand.cs" />
+    <Compile Include="Commands\AddPersonButtonCommand.cs" />
+    <Compile Include="Commands\AddPersonCommand.cs" />
+    <Compile Include="Commands\AddProductButtonCommand.cs" />
+    <Compile Include="Commands\AddProductCommand.cs" />
+    <Compile Include="Commands\UpdateInventoryCommand.cs" />
+    <Compile Include="Models\Inventory.cs" />
+    <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\StoreModel.cs" />
     <Compile Include="ViewAll.xaml.cs">
       <DependentUpon>ViewAll.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\AddInventoryViewModel.cs" />
+    <Compile Include="ViewModels\AddInvoiceViewModel.cs" />
+    <Compile Include="ViewModels\AddPersonViewModel.cs" />
+    <Compile Include="ViewModels\AddProductViewModel.cs" />
+    <Compile Include="ViewModels\StoreViewModel.cs" />
     <Compile Include="View\AddInvetoryView.xaml.cs">
       <DependentUpon>AddInvetoryView.xaml</DependentUpon>
     </Compile>
@@ -130,12 +148,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PresentationModel\PresentationModel.csproj">
-      <Project>{71EE29D8-3F8A-4D2F-91DC-5D598199A846}</Project>
-      <Name>PresentationModel</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\User.png" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +155,15 @@
     <Resource Include="Resources\Invoice.png" />
     <Resource Include="Resources\Product.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{9F2E147F-EC80-4782-A040-342219060577}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Task4\Data.csproj">
+      <Project>{0E312981-02E7-45AB-BB94-8CEF5EED3874}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

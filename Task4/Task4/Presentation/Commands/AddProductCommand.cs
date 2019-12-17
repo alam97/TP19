@@ -34,7 +34,7 @@ namespace Presentation.Commands
 
         public bool CanExecute(object parameter)
         {
-            return String.IsNullOrWhiteSpace(viewModel.Product.Error);
+            return String.IsNullOrWhiteSpace(viewModel.Error);
         }
 
         public void Execute(object parameter)

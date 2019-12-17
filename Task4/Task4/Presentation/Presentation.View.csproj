@@ -64,8 +64,6 @@
     <Compile Include="Commands\AddProductCommand.cs" />
     <Compile Include="Commands\UpdateInventoryCommand.cs" />
     <Compile Include="Models\Inventory.cs" />
-    <Compile Include="Models\Invoice.cs" />
-    <Compile Include="Models\Product.cs" />
     <Compile Include="ViewAll.xaml.cs">
       <DependentUpon>ViewAll.xaml</DependentUpon>
     </Compile>

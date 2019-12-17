@@ -27,7 +27,7 @@ namespace Services
             db.Products.InsertOnSubmit(p);
             AddToInventory(p, 0);
             db.SubmitChanges();
-           
+
 
         }
         public void AddEvent(Event e)
@@ -38,11 +38,17 @@ namespace Services
         }
         public void AddToInventory(Product p, int a)
         {
+            var query = from inventoryy in db.Inventories
+                        where inventoryy.ProductId >= 0
+                        select inventoryy;
+
             Inventory inventory = new Inventory()
             {
                 ProductId = p.Id,
-                amount = a
+                amount = a,
+                Id = query.Count()
             };
+
             db.Inventories.InsertOnSubmit(inventory);
             db.SubmitChanges();
         }
@@ -299,7 +305,7 @@ namespace Services
                 CreateEvent(user, product, DateTime.Today);
                 UpdateInventory(product, -amount);
             }
-         
+
         }
 
         #endregion

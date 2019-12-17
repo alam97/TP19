@@ -8,27 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Task4;
 
 namespace PresentationModel.ViewModels
 {
-    class AddProductViewModel
+    class AddProductViewModel : IDataErrorInfo, INotifyPropertyChanged
     {
         private Product product;
         private Store store;
 
-        /// <summary>
-        /// Initializes a new instance of the CustomerViewModel class.
-        /// </summary>
         public AddProductViewModel(Store store)
         {
             this.store = store;
-            product = new Product(this.store);
+            product = new Product()
+            {
+                Name = "Name",
+                Price = (decimal)19.99,
+                Id = 10
+            };
             AddProductCommand = new AddProductCommand(this);
         }
 
-        /// <summary>
-        /// Gets the customer instance
-        /// </summary>
         public Product Product
         {
             get
@@ -37,23 +37,108 @@ namespace PresentationModel.ViewModels
             }
         }
 
-        /// <summary>
-        /// Gets the UpdateCommand for the ViewModel
-        /// </summary>
         public ICommand AddProductCommand
         {
             get;
             private set;
         }
 
-        /// <summary>
-        /// Saves changes made to the Customer instance
-        /// </summary>
         public void SaveChanges()
         {
-            product.CreateProduct();
+            store.CreateProduct(Name, Price, Id);
         }
+
+
+        public String Name
+        {
+            get
+            {
+                return product.Name;
+            }
+            set
+            {
+                product.Name = value;
+                OnPropertyChanged("FirstName");
+            }
+        }
+        public Double Price
+        {
+            get
+            {
+                return (double)product.Price;
+            }
+            set
+            {
+                product.Price = (decimal)value;
+                OnPropertyChanged("Price");
+            }
+        }
+        public int Id
+        {
+            get
+            {
+                return product.Id;
+            }
+            set
+            {
+                product.Id = value;
+                OnPropertyChanged("Id");
+            }
+        }
+
+        public void CreateProduct()
+        {
+            store.CreateProduct(Name, Price, Id);
+        }
+
+
+
+        #region INotifyPropertyChanged Members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        #endregion
+
+
+        #region IDataErrorInfo Members
+
+        public string Error
+        {
+            get;
+            private set;
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                if (columnName == "Name" || columnName == "19.99" || columnName == "Id")
+                {
+                    if (String.IsNullOrWhiteSpace(Name) || String.IsNullOrWhiteSpace(Convert.ToString(Price)) || String.IsNullOrWhiteSpace(Convert.ToString(Id)))
+                    {
+                        Error = "Box cannot be null or empty.";
+                    }
+                    else
+                    {
+                        Error = null;
+                    }
+                }
+
+                return Error;
+            }
+        }
+
+        #endregion
     }
 }
 
-    
+   

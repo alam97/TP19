@@ -71,13 +71,13 @@ namespace Presentation.Models
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void OnPropertyChanged(string propertyFirstName)
+        private void OnPropertyChanged(string propertyName)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
 
             if (handler != null)
             {
-                handler(this, new PropertyChangedEventArgs(propertyFirstName));
+                handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
         #endregion
@@ -95,40 +95,17 @@ namespace Presentation.Models
         {
             get
             {
-                if (columnName == "Name")
+                if (columnName == "Name" || columnName == "19.99" || columnName == "Id")
                 {
-                    if (String.IsNullOrWhiteSpace(Name))
+                    if (String.IsNullOrWhiteSpace(Name) || String.IsNullOrWhiteSpace(Convert.ToString(Price)) || String.IsNullOrWhiteSpace(Convert.ToString(Id)))
                     {
-                        Error = "Name cannot be null or empty.";
+                        Error = "Box cannot be null or empty.";
                     }
                     else
                     {
                         Error = null;
                     }
                 }
-                else if (columnName == "Price")
-                {
-                    if (String.IsNullOrWhiteSpace(Convert.ToString(Price)))
-                    {
-                        Error = "Price cannot be null or empty.";
-                    }
-                    else
-                    {
-                        Error = null;
-                    }
-                }
-                else if (columnName == "Id")
-                {
-                    if (String.IsNullOrWhiteSpace(Convert.ToString(Id)))
-                    {
-                        Error = "Id cannot be null or empty.";
-                    }
-                    else
-                    {
-                        Error = null;
-                    }
-                }
-
 
                 return Error;
             }

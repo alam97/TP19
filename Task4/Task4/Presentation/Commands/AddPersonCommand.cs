@@ -12,9 +12,7 @@ namespace Presentation.Commands
     {
         private AddPersonViewModel viewModel;
 
-        /// <summary>
-        /// Initializes a new instance of the UpdateCustomerCommand class.
-        /// </summary>
+
         public AddPersonCommand(AddPersonViewModel viewModel)
         {
             this.viewModel = viewModel;
@@ -34,7 +32,7 @@ namespace Presentation.Commands
 
         public bool CanExecute(object parameter)
         {
-            return String.IsNullOrWhiteSpace(viewModel.Person.Error);
+            return String.IsNullOrWhiteSpace(viewModel.Error);
         }
 
         public void Execute(object parameter)

@@ -31,7 +31,8 @@ namespace Presentation
             AddInvoiceView addInvoiceView = new AddInvoiceView();
             AddProductView addProductView = new AddProductView();
             ViewAll viewAll = new ViewAll();
-            ViewAllProducts viewAllProducts = new ViewAllProducts(); 
+            ViewAllProducts viewAllProducts = new ViewAllProducts();
+            ViewAllEventsView viewAllEventsView = new ViewAllEventsView();
             InitializeComponent();
             DataContext = new StoreViewModel(addPersonView, addInvoiceView, addInvetoryView, addProductView);
         }

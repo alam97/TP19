@@ -64,8 +64,10 @@
     <Compile Include="Commands\AddProductCommand.cs" />
     <Compile Include="Commands\AddViewAllCommand.cs" />
     <Compile Include="Commands\UpdateInventoryCommand.cs" />
+    <Compile Include="Commands\ViewAllEventsCommand.cs" />
     <Compile Include="Commands\ViewAllProductsCommand.cs" />
     <Compile Include="Models\Inventory.cs" />
+    <Compile Include="ViewModels\ViewAllEventsModel.cs" />
     <Compile Include="ViewModels\ViewAllProductsModel.cs" />
     <Compile Include="ViewModels\ViewAllViewModel.cs" />
     <Compile Include="View\ViewAll.xaml.cs">
@@ -87,6 +89,9 @@
     </Compile>
     <Compile Include="View\AddProductView.xaml.cs">
       <DependentUpon>AddProductView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewAllEventsView.xaml.cs">
+      <DependentUpon>ViewAllEventsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewAllProducts.xaml.cs">
       <DependentUpon>ViewAllProducts.xaml</DependentUpon>
@@ -122,6 +127,10 @@
     <Page Include="View\AddProductView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ViewAllEventsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ViewAllProducts.xaml">
       <SubType>Designer</SubType>

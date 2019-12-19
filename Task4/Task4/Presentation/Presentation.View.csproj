@@ -62,9 +62,11 @@
     <Compile Include="Commands\AddPersonCommand.cs" />
     <Compile Include="Commands\AddProductButtonCommand.cs" />
     <Compile Include="Commands\AddProductCommand.cs" />
+    <Compile Include="Commands\AddViewAllCommand.cs" />
     <Compile Include="Commands\UpdateInventoryCommand.cs" />
     <Compile Include="Models\Inventory.cs" />
-    <Compile Include="ViewAll.xaml.cs">
+    <Compile Include="ViewModels\ViewAllViewModel.cs" />
+    <Compile Include="View\ViewAll.xaml.cs">
       <DependentUpon>ViewAll.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AddInventoryViewModel.cs" />
@@ -96,7 +98,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ViewAll.xaml">
+    <Page Include="View\ViewAll.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

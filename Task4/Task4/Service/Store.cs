@@ -119,8 +119,12 @@ namespace Services
 
         public void CreateEvent(int user, int catalog, DateTimeOffset date)
         {
+            var query = from ewentt in db.Events
+                        where ewentt.Id >= 0
+                        select ewentt;
             Event ewent = new Event()
             {
+                Id = query.Count(),
                 PersonId = user,
                 ProductId = catalog,
                 EventDate = date

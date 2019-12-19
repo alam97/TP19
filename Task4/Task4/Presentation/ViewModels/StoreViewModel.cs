@@ -17,24 +17,30 @@ namespace Presentation.ViewModels
         private AddInventoryViewModel addInventoryViewModel;
         private AddInvoiceViewModel addInvoiceViewModel;
         private AddProductViewModel addProductViewModel;
+        private ViewAllViewModel viewAllViewModel;
 
         public StoreViewModel(Window user, Window invoice, Window inventory, Window product)
         {
             this.store = new Store();
 
             addUserViewModel = new AddPersonViewModel(this.store);
-            addInventoryViewModel = new AddInventoryViewModel();
+            addInventoryViewModel = new AddInventoryViewModel(this.store);
             addInvoiceViewModel = new AddInvoiceViewModel(this.store);
             addProductViewModel = new AddProductViewModel(this.store);
-
+            viewAllViewModel = new ViewAllViewModel(this.store);
 
             AddPersonCommand = new AddPersonButtonCommand(this);
             AddInventoryCommand = new AddInventoryButtonCommand(this);
             AddInvoiceCommand = new AddInvoiceButtonCommand(this);
             AddProductCommand = new AddProductButtonCommand(this);
         }
-        
- 
+
+        internal void AddViewAllCreate(string a)
+        {
+          //  if(a == "1")
+
+        }
+
         public ICommand AddPersonCommand
         {
             get;

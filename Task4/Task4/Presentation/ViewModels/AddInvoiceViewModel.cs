@@ -9,10 +9,12 @@ using Task4;
 
 namespace PresentationModel.ViewModels
 { 
-    class AddInvoiceViewModel :  INotifyPropertyChanged
+    class AddInvoiceViewModel :  INotifyPropertyChanged, IDataErrorInfo
     {
         private Store store;
         private int amount;
+        private Person person;
+        private Product product;
 
         private ObservableCollection<Person> persons;
         private ObservableCollection<Product> products;
@@ -37,7 +39,7 @@ namespace PresentationModel.ViewModels
 
         public void SaveChanges()
         {
-           // store.BuyItem(PersonId, ProductId, Amount);
+            store.BuyItem(Person.Id, Product.Id, Amount);
         }
 
         public int Amount
@@ -53,12 +55,31 @@ namespace PresentationModel.ViewModels
             }
         }
 
-        public void CreateInvoice()
+        public Person Person
         {
-        //    store.BuyItem(Persons., ProductId, Amount);
+            get
+            {
+                return person;
+            }
+            set
+            {
+                person = value;
+                OnPropertyChanged("Person");
+            }
         }
 
-
+        public Product Product
+        {
+            get
+            {
+                return product;
+            }
+            set
+            {
+                product = value;
+                OnPropertyChanged("Product");
+            }
+        }
 
         #region INotifyPropertyChanged Members
 
@@ -84,48 +105,25 @@ namespace PresentationModel.ViewModels
             private set;
         }
 
-        //public string this[string columnName]
-        //{
-        //    get
-        //    {
-        //        if (columnName == "PersonId")
-        //        {
-        //            if (String.IsNullOrWhiteSpace(Convert.ToString(PersonId)))
-        //            {
-        //                Error = "PersonId cannot be null or empty.";
-        //            }
-        //            else
-        //            {
-        //                Error = null;
-        //            }
-        //        }
-        //        else if (columnName == "ProductId")
-        //        {
-        //            if (String.IsNullOrWhiteSpace(Convert.ToString(ProductId)))
-        //            {
-        //                Error = "ProductId cannot be null or empty.";
-        //            }
-        //            else
-        //            {
-        //                Error = null;
-        //            }
-        //        }
-        //        else if (columnName == "Amount")
-        //        {
-        //            if (String.IsNullOrWhiteSpace(Convert.ToString(Amount)))
-        //            {
-        //                Error = "Amount cannot be null or empty.";
-        //            }
-        //            else
-        //            {
-        //                Error = null;
-        //            }
-        //        }
-
-
-        //        return Error;
-        //    }
-        //}
+        public string this[string columnName]
+        {
+            get
+            {
+                if (columnName == "Amount")
+                {
+                    if (String.IsNullOrWhiteSpace(Convert.ToString(Amount)))
+                    {
+                        Error = "Amount cannot be null or empty.";
+                    }
+                    else
+                    {
+                        Error = null;
+                    }
+                }
+         
+                return Error;
+            }
+        }
 
         #endregion
 

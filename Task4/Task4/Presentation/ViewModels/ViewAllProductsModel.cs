@@ -14,21 +14,13 @@ namespace Presentation.ViewModels
     class ViewAllProductsModel
     {
         private Store store;
-        public ObservableCollection<Person> persons { get; set; }
         public ObservableCollection<Product> products { get; set; }
-        private ObservableCollection<Event> ewents { get; set; }
-        private ObservableCollection<Inventory> inventories { get; set; }
-
-        private int whichCollection;
-
         private ObservableCollection<Object> displayGrid;
 
         public ViewAllProductsModel(Store store)
         {
-            this.store = store;
-            persons = new ObservableCollection<Person>(store.GetAllPersons());
+            this.store = store;  
             products = store.GetAllProducts();
-            ewents = store.GetAllEvents();
         }
 
         public void SetDisplayCollection(int a)

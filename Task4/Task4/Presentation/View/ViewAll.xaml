@@ -7,15 +7,7 @@
         mc:Ignorable="d"
         Title="ViewAll" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        <DataGrid ItemsSource="{Binding persons}">
+        <DataGrid ItemsSource="{Binding persons}" CanUserAddRows="False">
         </DataGrid>
 
     </Grid>

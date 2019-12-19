@@ -14,10 +14,10 @@ namespace Presentation.ViewModels
     class ViewAllViewModel
     {
         private Store store;
-        private ObservableCollection<Person> persons;
-        private ObservableCollection<Product> products;
-        private ObservableCollection<Event> ewents;
-        private ObservableCollection<Inventory> inventories;
+        private ObservableCollection<Person> persons { get; set; }
+        private ObservableCollection<Product> products { get; set; }
+        private ObservableCollection<Event> ewents { get; set; }
+        private ObservableCollection<Inventory> inventories { get; set; }
 
         private int whichCollection;
 

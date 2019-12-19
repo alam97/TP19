@@ -38,7 +38,7 @@ namespace Presentation.Commands
         public void Execute(object parameter)
         {
             string a = (string)parameter;
-            viewModel.AddViewAllCreate(a);
+            viewModel.AddViewAllCreate();
         }
     }
 }

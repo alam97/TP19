@@ -29,17 +29,28 @@ namespace Presentation.ViewModels
             addProductViewModel = new AddProductViewModel(this.store);
             viewAllViewModel = new ViewAllViewModel(this.store);
 
+            AddViewAllCommand = new AddViewAllCommand(this);
             AddPersonCommand = new AddPersonButtonCommand(this);
             AddInventoryCommand = new AddInventoryButtonCommand(this);
             AddInvoiceCommand = new AddInvoiceButtonCommand(this);
             AddProductCommand = new AddProductButtonCommand(this);
         }
 
-        internal void AddViewAllCreate(string a)
+        public void AddViewAllCreate()
         {
-          //  if(a == "1")
+            
+            ViewAll view = new ViewAll();
+            view.DataContext = viewAllViewModel;
+            view.ShowDialog();
 
         }
+
+        public ICommand AddViewAllCommand
+        {
+            get;
+            private set;
+        }
+
 
         public ICommand AddPersonCommand
         {

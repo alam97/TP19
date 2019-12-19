@@ -19,7 +19,7 @@
         <TextBlock HorizontalAlignment="Left" Height="37.342" Margin="62.93,498.158,0,0" TextAlignment="Center" TextWrapping="Wrap" Text=": INVOICE" VerticalAlignment="Top" Width="259.178" FontFamily="Courier New" FontSize="16" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Height="37.342" Margin="475.905,498.158,0,0" TextAlignment="Center" TextWrapping="Wrap" Text=": INVENTORY" VerticalAlignment="Top" Width="259.178" FontFamily="Courier New" FontSize="16" FontWeight="Bold"/>
         <StackPanel HorizontalAlignment="Left" Height="80" Margin="62.93,230.057,0,0" VerticalAlignment="Top" Width="259.178">
-            <Button Content="View all" HorizontalAlignment="Left" Height="40" Width="259.178" />
+            <Button Content="View all" HorizontalAlignment="Left" Height="40" Width="259.178" Command="{Binding AddViewAllCommand}"/>
             <Button Content="Add new" HorizontalAlignment="Left" Height="40" Width="259.178" Command="{Binding AddPersonCommand}"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Height="80" Margin="471.519,228.633,0,0" VerticalAlignment="Top" Width="259.178">

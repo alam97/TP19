@@ -65,7 +65,7 @@ namespace Presentation.ViewModels
             view.DataContext = viewAllEventsModel;
             view.ShowDialog();
         }
-
+        //commands
         public ICommand ViewAllEventsCommand
         {
             get;

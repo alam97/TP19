@@ -14,7 +14,7 @@ namespace Presentation.ViewModels
     class ViewAllViewModel
     {
         private Store store;
-        private ObservableCollection<Person> persons { get; set; }
+        public ObservableCollection<Person> persons { get; set; }
         private ObservableCollection<Product> products { get; set; }
         private ObservableCollection<Event> ewents { get; set; }
         private ObservableCollection<Inventory> inventories { get; set; }
@@ -26,7 +26,7 @@ namespace Presentation.ViewModels
         public ViewAllViewModel(Store store)
         {
             this.store = store;
-            persons = store.GetAllPersons();
+            persons = new ObservableCollection<Person>(store.GetAllPersons());
             products = store.GetAllProducts();
             ewents = store.GetAllEvents();
         }

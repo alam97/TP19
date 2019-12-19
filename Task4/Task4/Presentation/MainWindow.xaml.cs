@@ -1,4 +1,5 @@
 ﻿
+using Presentation.View;
 using Presentation.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -30,10 +31,9 @@ namespace Presentation
             AddInvoiceView addInvoiceView = new AddInvoiceView();
             AddProductView addProductView = new AddProductView();
             ViewAll viewAll = new ViewAll();
+            ViewAllProducts viewAllProducts = new ViewAllProducts(); 
             InitializeComponent();
             DataContext = new StoreViewModel(addPersonView, addInvoiceView, addInvetoryView, addProductView);
         }
-
- 
     }
 }

@@ -18,6 +18,7 @@ namespace Presentation.ViewModels
         private AddInvoiceViewModel addInvoiceViewModel;
         private AddProductViewModel addProductViewModel;
         private ViewAllViewModel viewAllViewModel;
+        private ViewAllProductsModel viewAllProductsModel;
 
         public StoreViewModel(Window user, Window invoice, Window inventory, Window product)
         {
@@ -28,8 +29,10 @@ namespace Presentation.ViewModels
             addInvoiceViewModel = new AddInvoiceViewModel(this.store);
             addProductViewModel = new AddProductViewModel(this.store);
             viewAllViewModel = new ViewAllViewModel(this.store);
+            viewAllProductsModel = new ViewAllProductsModel(this.store);
 
             AddViewAllCommand = new AddViewAllCommand(this);
+            ViewAllProductsCommand = new ViewAllProductsCommand(this);
             AddPersonCommand = new AddPersonButtonCommand(this);
             AddInventoryCommand = new AddInventoryButtonCommand(this);
             AddInvoiceCommand = new AddInvoiceButtonCommand(this);
@@ -43,6 +46,19 @@ namespace Presentation.ViewModels
             view.DataContext = viewAllViewModel;
             view.ShowDialog();
 
+        }
+
+        public void ViewAllProductsCreate()
+        {
+            View.ViewAllProducts view = new View.ViewAllProducts();
+            view.DataContext = viewAllProductsModel;
+            view.ShowDialog();
+        }
+
+        public ICommand ViewAllProductsCommand
+        {
+            get;
+            private set;
         }
 
         public ICommand AddViewAllCommand

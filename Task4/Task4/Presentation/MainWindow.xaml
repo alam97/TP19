@@ -23,7 +23,7 @@
             <Button Content="Add new" HorizontalAlignment="Left" Height="40" Width="259.178" Command="{Binding AddPersonCommand}"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Height="80" Margin="471.519,228.633,0,0" VerticalAlignment="Top" Width="259.178">
-            <Button Content="View all" HorizontalAlignment="Left" Height="40" Width="259.178"/>
+            <Button Content="View all" HorizontalAlignment="Left" Height="40" Width="259.178" Command="{Binding ViewAllProductsCommand}"/>
             <Button Content="Add new" HorizontalAlignment="Left" Height="40" Width="259.178" Command="{Binding AddProductCommand}"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Height="80" Margin="62.93,535.5,0,0" VerticalAlignment="Top" Width="259.178">

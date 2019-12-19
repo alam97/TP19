@@ -14,7 +14,6 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <DataGrid ItemsSource="{Binding persons}">
         </DataGrid>
